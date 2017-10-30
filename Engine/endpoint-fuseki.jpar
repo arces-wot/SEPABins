@@ -15,6 +15,5 @@
 		"formats" : {
 			"query" : "JSON" ,
 			"update" : "HTML"}
-		 ,
-		"concurrentRequests" : 5}
+		}
 }
