@@ -359,49 +359,49 @@
 				"observation":"arces-monitor:5CCF7F15676D-temperature",
 				"unit":"qudt-unit-1-1:DegreeCelsius",
 				"location":"arces-monitor:Mars",
-				"comment":"Temperatura zona rack sala server Toffano",
+				"comment":"Temperatura zona rack sala server Via Toffano",
 				"label":"Temperatura zona rack"}
 			,
 			"5CCF7F15676D/humidity":{
 				"observation":"arces-monitor:5CCF7F15676D-humidity",
 				"unit":"qudt-unit-1-1:Percent",
 				"location":"arces-monitor:Mars",
-				"comment":"Umidità zona rack sala server Toffano",
+				"comment":"Umidità zona rack sala server Via Toffano",
 				"label":"Umidità zona rack"}
 			,
 			"5CCF7F1B599E/temperature":{
 				"observation":"arces-monitor:5CCF7F1B599E-temperature",
 				"unit":"qudt-unit-1-1:DegreeCelsius",
 				"location":"arces-monitor:Mars",
-				"comment":"Temperatura zona finestra sala server Toffano",
+				"comment":"Temperatura zona finestra sala server Via Toffano",
 				"label":"Temperatura zona finestra"}
 			,
 			"5CCF7F1B599E/humidity":{
 				"observation":"arces-monitor:5CCF7F1B599E-humidity",
 				"unit":"qudt-unit-1-1:Percent",
 				"location":"arces-monitor:Mars",
-				"comment":"Umidità zona finestra sala server Toffano",
+				"comment":"Umidità zona finestra sala server Via Toffano",
 				"label":"Umidità zona finestra"}
 			,
 			"5CCF7F151DC9/temperature":{
 				"observation":"arces-monitor:5CCF7F151DC9-temperature",
 				"unit":"qudt-unit-1-1:DegreeCelsius",
 				"location":"arces-monitor:Mars",
-				"comment":"Temperatura esterna sala server Toffano",
+				"comment":"Temperatura esterna sala server Via Toffano",
 				"label":"Temperatura esterna"}
 			,
 			"5CCF7F1B58AC/temperature":{
 				"observation":"arces-monitor:5CCF7F1B58AC-temperature",
 				"unit":"qudt-unit-1-1:DegreeCelsius",
 				"location":"arces-monitor:Star",
-				"comment":"Temperatura zona rack sala server Pepoli",
+				"comment":"Temperatura zona rack sala server Viale Pepoli",
 				"label":"Temperatura zona rack"}
 			,
 			"5CCF7F1B58AC/humidity":{
 				"observation":"arces-monitor:5CCF7F1B58AC-humidity",
 				"unit":"qudt-unit-1-1:Percent",
 				"location":"arces-monitor:Star",
-				"comment":"Umidità zona rack sala server Pepoli",
+				"comment":"Umidità zona rack sala server Viale Pepoli",
 				"label":"Umidità zona rack"}
 		}
 	}
