@@ -2,16 +2,12 @@
 <Configuration status="INFO">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-          <PatternLayout pattern="%date %t (%F:%L) %highlight{%style{[%-5level]}{bright}}{FATAL=magenta, ERROR=red, WARN=blue, INFO=black, DEBUG=white, TRACE=yellow} %highlight{%msg%n%throwable}{FATAL=magenta, ERROR=red, WARN=blue, INFO=black, DEBUG=white, TRACE=yellow}"/>
-          <!--PatternLayout pattern="%highlight{%date %style{[%-5level]}{bright}}{FATAL=magenta, ERROR=red, WARN=blue, INFO=black, DEBUG=white, TRACE=yellow} %highlight{(%F:%L) %msg%n%throwable}{FATAL=magenta, ERROR=red, WARN=blue, INFO=black, DEBUG=white, TRACE=yellow}"/-->
+          <PatternLayout pattern="%d{ISO8601} [%-5level] %t (%F:%L) %msg%n%throwable"/>
         </Console>       
     </Appenders>
     <Loggers>
-        <Root level="error">
+        <Root level="debug">
             <AppenderRef ref="Console" />
-           <!--   
-           	<AppenderRef ref="MyFile"/>
-           -->
         </Root>
     </Loggers>
 </Configuration>
