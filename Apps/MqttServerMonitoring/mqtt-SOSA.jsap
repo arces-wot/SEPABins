@@ -33,18 +33,18 @@
 		"arces-monitor" : "http://wot.arces.unibo.it/monitor#"}
 	 ,
 	"extended" : {
-		"simulate" : true ,
+		"simulate" : false ,
 		"mqtt" : {
 			"url" : "giove.arces.unibo.it" ,
 			"port" : 52877 ,
-			"topics" : ["#"]
+			"topics" : ["pepoli:6lowpan:network"]
 			 ,
 			"ssl" : false}
 		 ,
 		"regexTopics" : {
-			"pepoli:6lowpan:network" : [".[|].ID:.(\\w+).[|].(Temperature)[:].(?<value>\\d+.\\d++).[|].\\w+[:].\\d+.\\d++.[|].\\w+[:].\\d+.\\d+" ,
-				".[|].ID:.(\\w+).[|].\\w+[:].\\d+.\\d++.[|].(Humidity)[:].(?<value>\\d+.\\d++).[|].\\w+[:].\\d+.\\d+" ,
-				".[|].ID:.(\\w+).[|].\\w+[:].\\d+.\\d++.[|].\\w+[:].\\d+.\\d++.[|].(Pressure)[:].(?<value>\\d+.\\d+)"]
+			"pepoli:6lowpan:network" : [".[|].ID:.(\\w+).[|].(Temperature)[:].(?<value>\\d+.\\d++).[|].\\w+[:].\\d+.\\d++.[|].\\w+[:].\\d+.\\d+\n" ,
+				".[|].ID:.(\\w+).[|].\\w+[:].\\d+.\\d++.[|].(Humidity)[:].(?<value>\\d+.\\d++).[|].\\w+[:].\\d+.\\d+\n" ,
+				".[|].ID:.(\\w+).[|].\\w+[:].\\d+.\\d++.[|].\\w+[:].\\d+.\\d++.[|].(Pressure)[:].(?<value>\\d+.\\d+)\n"]
 		}
 		 ,
 		"jsonTopics" : {
