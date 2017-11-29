@@ -1,7 +1,6 @@
 {
 	"parameters" : {
-		"concurrentRequests" : 10 ,
-		"host" : "wot.arces.unibo.it" ,
+		"host" : "localhost" ,
 		"ports" : {
 			"http" : 8000 ,
 			"https" : 8443 ,
@@ -61,7 +60,18 @@
 					"type" : "literal" ,
 					"value" : ""}
 			}
-		}
+		},
+		"REGISTER_USER" : {
+			"sparql": "INSERT {?id rdf:type chat:User ; chat:password ?password ; chat:userName ?userName} WHERE {BIND(IRI(CONCAT(\"chat:User-\",STRUUID())) AS ?id) . FILTER NOT EXISTS(?x chat:userName ?userName)}",
+			"forcedBindings" : {
+				"password" : {
+					"type" : "literal" ,
+					"value" : ""},
+				"userName" : {
+                    "type" : "literal" ,
+                    "value" : ""}
+			}
+        }
 	}
 	 ,
 	"queries" : {
@@ -81,6 +91,9 @@
 					"type" : "literal" ,
 					"value" : ""}
 			}
+		},
+		"USERS" : {
+		"sparql" : "SELECT ?userName WHERE {?user rdf:type chat:User ; chat:userName ?userName}"
 		}
 	}
 }
