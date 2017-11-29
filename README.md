@@ -61,6 +61,6 @@ Secure Subscribe     | wss://192.168.1.7:9443/secure/subscribe
 *****************************************************************************************
 ```
 ### Experiment with the Dashboard
-In the `Tools` folder, you can find an application (`SEPADashboard_X_Y_Z.jar`) that allows you to interact and experiment the functionalities offered by SEPA. SEPA applications are built around a [JSON Semantic Application Profile (JSAP)](http://wot.arces.unibo.it/TR/jsap.html). Examples of JSAP files can be found in the `jsap` folder. 
+In the `Tools` folder, you can find an application (`SEPADashboard_X_Y_Z.jar`) that allows you to interact and experiment the functionalities offered by SEPA. Just double click on the jar or run it from a command shell as: `java -jar Dashboard_X_Y_Z.jar` 
 
-You should start by loading the `chat.jsap` file into the Dashboard...enjoy!
+SEPA applications are built around a [JSON Semantic Application Profile (JSAP)](http://wot.arces.unibo.it/TR/jsap.html). Examples of JSAP files can be found in the `jsap` folder. You should start by loading the `chat.jsap` file into the Dashboard...enjoy!
