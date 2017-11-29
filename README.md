@@ -3,7 +3,7 @@ The repository includes all you need to test SEPA, a publish-subscribe architect
 
 Developers can benefit of a set of API implementing a [Producer-Aggregator-Consumer design pattern](http://wot.arces.unibo.it/TR/jsap.html).
 
-For more details on the current implementation and how you can contribute please follow this [link] (https://github.com/arces-wot/SEPA).
+For more details on the current implementation and how you can contribute please follow this [link](https://github.com/arces-wot/SEPA).
 
 ## Installation
 Clone the repository: `git clone https://github.com/arces-wot/SEPABins.git`
