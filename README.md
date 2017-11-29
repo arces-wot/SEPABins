@@ -1,7 +1,7 @@
 # SEPABins
 The repository includes all you need to test SEPA, a publish-subscribe architecture designed to support information level interoperability by means of Semantic Web technologies. The architecture is built on top of a generic SPARQL endpoint where publishers and subscribers use standard **SPARQL** [Updates](https://www.w3.org/TR/sparql11-update/) and [Queries](https://www.w3.org/TR/sparql11-query/). Notifications about events (i.e., changes in the [**RDF**](https://www.w3.org/RDF/) knowledge base) are expressed in terms of [added and removed SPARQL binding results](http://wot.arces.unibo.it/TR/sparql11-subscribe.html) since the previous notification. 
 
-Developers can benefit of a set of API implementing a [producer-aggregator-consumer design pattern] (http://wot.arces.unibo.it/TR/jsap.html).
+Developers can benefit of a set of API implementing a [Producer-Aggregator-Consumer design pattern](http://wot.arces.unibo.it/TR/jsap.html).
 
 For more details on the current implementation and how you can contribute please follow this [link] (https://github.com/arces-wot/SEPA).
 
@@ -61,4 +61,6 @@ Secure Subscribe     | wss://192.168.1.7:9443/secure/subscribe
 *****************************************************************************************
 ```
 ### Experiment with the Dashboard
-In the `Tools` folder, you can find an application (`SEPADashboard_X_Y_Z.jar`) that allows you to interact and experiment the functionalities offered by SEPA. SEPA applications are built around a JSON Semantic Application Profile (jsap). Examples of jsap files can be found in the `jsap` folder. You could start by loading the `chat.jsap` file into the Dashboard...enjoy!
+In the `Tools` folder, you can find an application (`SEPADashboard_X_Y_Z.jar`) that allows you to interact and experiment the functionalities offered by SEPA. SEPA applications are built around a [JSON Semantic Application Profile (JSAP)](http://wot.arces.unibo.it/TR/jsap.html). Examples of JSAP files can be found in the `jsap` folder. 
+
+You should start by loading the `chat.jsap` file into the Dashboard...enjoy!
