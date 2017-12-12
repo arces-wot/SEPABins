@@ -62,7 +62,7 @@ Secure Subscribe     | wss://192.168.1.7:9443/secure/subscribe
 *****************************************************************************************
 ```
 ## Configure
-SEPA engine configuration parameters are stored in the `engine.jpar` JSON file. The file structure follows:
+SEPA engine configuration parameters are stored in a JSON file (named `engine.jpar`) like the following:
 ```json
 {
 	"parameters" : {
@@ -93,7 +93,7 @@ SEPA engine configuration parameters are stored in the `engine.jpar` JSON file. 
 	}
 }
 ```
-The `ports` and `paths` members are used to specify the URLs at which the engine is listening for requests. The above default configuration corresponds setups the engine has shown [here](#running).
+The `ports` and `paths` members are used to specify the URLs at which the engine is listening for requests. The above default configuration initializes the engine has shown [here](#running). The `keepalive` member specifies the ping period. Timeouts on update and query processing on the SPARQL endpoint are specified respectively by the `updateTimeout` and `queryTimeout` members. It also possible to setup the maximum number of concurrent requests that can be processed by the endpoint (see `maxConcurrentRequests`). Eventually, the `queueSize`is the maximum number of pending requests after which the engine starts to deny new requests.
 
 ## Security issues
 The engine uses a JKS for storing the keys and certificates for [SSL](http://docs.oracle.com/cd/E19509-01/820-3503/6nf1il6ek/index.html) and [JWT](https://tools.ietf.org/html/rfc7519) signing/verification. A default `sepa.jks` is provided including a single X.509 certificate (the password for both the store and the key is: `sepa2017`). If you face problems using the provided JKS, please delete the `sepa.jks` file and create a new one as follows: `keytool -genkey -keyalg RSA -alias sepakey -keystore sepa.jks -storepass sepa2017 -validity 360 -keysize 2048`
