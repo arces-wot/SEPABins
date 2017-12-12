@@ -25,6 +25,7 @@ If you want to use [Blazegraph](https://www.blazegraph.com/):
 2. The SEPA engine uses to configuration file: `endpoint.jar` and `engine.jpar`. The former is used to specify the parameters to interact with the SPARQL endpoint, the latter to set-up the engine parameters (e.g., ports, paths, timeouts, ...). In the Engine folder you find two configuration files for the two endpoints: `endpoint-fuseki.jpar` and `endpoint-blazegraph.jpar`. Rename to `endpoint.jpar` the one corresponding to the endpoint you choose to use.
 3. Run the engine: `java -XX:+UseG1GC -Dlog4j.configurationFile=./log4j2.xml -jar SEPAEngine_X_Y_Z.jar`
 
+<a name="running"></a>
 ```
 ##########################################################################################
 # SEPA Engine Ver 0.8.3  Copyright (C) 2016-2017                                         #
@@ -60,6 +61,40 @@ Secure Subscribe     | wss://192.168.1.7:9443/secure/subscribe
 *                                Let Things Talk!                                       *
 *****************************************************************************************
 ```
+## Configure
+SEPA engine configuration parameters are stored in the `engine.jpar` JSON file. The file structure follows:
+```json
+{
+	"parameters" : {
+		"scheduler" : {
+			"queueSize" : 100}
+		 ,
+		"processor" : {
+			"updateTimeout" : 5000 ,
+			"queryTimeout" : 5000,
+			"maxConcurrentRequests" : 5}
+		 ,
+		"spu" : {
+			"keepalive" : 5000}
+		 ,
+		"ports" : {
+			"http" : 8000 ,
+			"ws" : 9000 ,
+			"https" : 8443 ,
+			"wss" : 9443}
+		 ,
+		"paths" : {
+			"update" : "/update" ,
+			"query" : "/query" ,
+			"subscribe" : "/subscribe" ,
+			"register" : "/oauth/register" ,
+			"tokenRequest" : "/oauth/token" ,
+			"securePath" : "/secure"}
+	}
+}
+```
+The `ports` and `paths` members are used to specify the URLs at which the engine is listening for requests. The above default configuration corresponds setups the engine has shown [here](#running).
+
 ## Security issues
 The engine uses a JKS for storing the keys and certificates for [SSL](http://docs.oracle.com/cd/E19509-01/820-3503/6nf1il6ek/index.html) and [JWT](https://tools.ietf.org/html/rfc7519) signing/verification. A default `sepa.jks` is provided including a single X.509 certificate (the password for both the store and the key is: `sepa2017`). If you face problems using the provided JKS, please delete the `sepa.jks` file and create a new one as follows: `keytool -genkey -keyalg RSA -alias sepakey -keystore sepa.jks -storepass sepa2017 -validity 360 -keysize 2048`
 The SEPA engine allows to use a user generated JKS. Run `java -jar engine-x.y.z.jar -help` for a list of options. The Java [Keytool](https://docs.oracle.com/javase/6/docs/technotes/tools/solaris/keytool.html) can be used to create, access and modify a JKS. 
