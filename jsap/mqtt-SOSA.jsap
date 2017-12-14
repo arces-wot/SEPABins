@@ -116,7 +116,7 @@
 	 ,
 	"updates" : {
 		"ADD_OBSERVATION" : {
-			"sparql" : "INSERT {?observation rdf:type sosa:Observation ; rdfs:label ?label ; rdfs:comment ?comment ; sosa:hasFeatureOfInterest ?location ; arces-monitor:hasMqttTopic ?topic ; sosa:hasResult ?quantity . ?quantity rdf:type qudt-1-1:QuantityValue ; qudt-1-1:unit ?unit} WHERE {BIND(IRI(CONCAT(\"arces-monitor:QuantityValue-\",STRUUID())) AS ?quantity) . FILTER NOT EXISTS {?observation rdf:type sosa:Observation}}" ,
+			"sparql" : "INSERT {?observation rdf:type sosa:Observation ; rdfs:label ?label ; rdfs:comment ?comment ; sosa:hasFeatureOfInterest ?location ; arces-monitor:hasMqttTopic ?topic ; sosa:hasResult ?quantity . ?quantity rdf:type qudt-1-1:QuantityValue ; qudt-1-1:unit ?unit} WHERE {BIND(IRI(CONCAT(\"http://wot.arces.unibo.it/monitor#QuantityValue-\",STRUUID())) AS ?quantity) . FILTER NOT EXISTS {?observation rdf:type sosa:Observation}}" ,
 			"forcedBindings" : {
 				"observation" : {
 					"type" : "uri" ,
