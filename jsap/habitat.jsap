@@ -36,13 +36,12 @@
 		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	},
 	"updates": {
-		"INSERT_USER_POSITION_EVENT" : {
-			"sparql" : "INSERT {?userPositionEvent rdf:type hbt:UserPositionEvent ; hbt:typeMsg ?typeMsg ; hbt:idReader ?idReader ; hbt:idActiveTag ?idActiveTag ; hbt:posX ?posX ; hbt:posY ?posY ; hbt:timestamp ?timestamp } WHERE{ BIND(IRI(CONCAT(\"http://it.unibo/habitat#UserPositionEvent-\",STRUUID())) AS ?userPositionEvent)  BIND(now() AS ?timestamp)}",
+		"INSERT_POSITION_EVENT" : {
+			"sparql" : "INSERT {
+			?idEvent rdf:type hbt:PositionEvent ; hbt:timestamp ?timestamp ; hbt:idReader ?idReader ; hbt:idActiveTag ?idActiveTag ; hbt:posX ?posX ; hbt:posY ?posY}
+			 WHERE
+			 {BIND(IRI(CONCAT(\"http://it.unibo/habitat#PositionEvent-\",STRUUID())) AS ?idEvent)  BIND(now() AS ?timestamp)}",
 			"forcedBindings" : {
-				"typeMsg" : {
-					"type" : "literal" ,
-					"value" : "position"}
-				 ,
 				"idReader" : {
 					"type" : "literal" ,
 					"value" : ""}
@@ -61,31 +60,146 @@
 			}
 		},
 		
-		"DELETE_USER_POSITION_EVENT" : {
-			"sparql" :  "DELETE {?s ?p ?o} WHERE {?s rdf:type hbt:UserPositionEvent . ?s ?p ?o}",
+		"INSERT_CHAIR_EVENT" : {
+			"sparql" : "INSERT {
+			?idEvent rdf:type hbt:ChairEvent ; hbt:typeChairEvent ?typeChairEvent ; hbt:timestamp ?timestamp ; hbt:idChair ?idChair ; hbt:idActiveTag ?idActiveTag }
+			 WHERE
+			 {BIND(IRI(CONCAT(\"http://it.unibo/habitat#ChairEvent-\",STRUUID())) AS ?idEvent)  BIND(now() AS ?timestamp)}",
 			"forcedBindings" : {
-				"userPositionEvent" : {
+				"typeChairEvent" : {
+					"type" : "literal" ,
+					"value" : ""}
+				,
+				"idChair" : {
+					"type" : "literal" ,
+					"value" : ""}
+				,
+				"idActiveTag" : {
+					"type" : "literal" ,
+					"value" : ""}
+				
+			}
+		},
+		
+		"INSERT_NOTIFICATION_EVENT" : {
+			"sparql" : "INSERT {
+			?idEvent rdf:type hbt:NotificationEvent ; hbt:timestamp ?timestamp ; hbt:categoryNot ?category ; hbt:typeNot ?type ; hbt:idDest ?dest ; hbt:idAbout ?about ; 
+			hbt:location ?location ; hbt:textNot ?text }
+			 WHERE
+			 {BIND(now() AS ?timestamp)}",
+			"forcedBindings" : {
+				"idEvent" : {
 					"type" : "uri" ,
+					"value" : ""}
+				,
+				"category" : {
+					"type" : "literal" ,
+					"value" : ""}
+				,
+				"type" : {
+					"type" : "literal" ,
+					"value" : ""}
+				,
+				"dest" : {
+					"type" : "literal" ,
+					"value" : ""}
+				,
+				"about" : {
+					"type" : "literal" ,
+					"value" : ""}
+				,
+				"location" : {
+					"type" : "literal" ,
+					"value" : ""}
+				,
+				"text" : {
+					"type" : "literal" ,
 					"value" : ""}
 			}
 		},
-		"DELETE_ALL_USER_POSITION_EVENTS" : {
-			"sparql" : "DELETE {?s ?p ?o} WHERE { ?s rdf:type hbt:UserPositionEvent ; hbt:typeMsg ?typeMsg ; ?p ?o}",
+		
+		"INSERT_ANSWER_EVENT" : {
+			"sparql" : "INSERT {
+			?idEvent rdf:type hbt:AnswerEvent ; hbt:timestamp ?timestamp ; hbt:refersTo ?idNotificationEvent ; hbt:textAns ?text }
+			 WHERE
+			 {BIND(now() AS ?timestamp)}",
 			"forcedBindings" : {
-				"typeMsg" : {
+				"idEvent" : {
+					"type" : "uri" ,
+					"value" : ""}
+				,
+				"idNotificationEvent" : {
+					"type" : "uri" ,
+					"value" : ""}
+				,
+				"text" : {
 					"type" : "literal" ,
-					"value" : "position"}
+					"value" : ""}
+			}
+		},
+		
+		
+		"DELETE_EVENT" : {
+			"sparql" :  "DELETE{
+						?idEvent ?anyPred ?anyObj
+						}WHERE{
+						?idEvent ?anyPred ?anyObj
+						}",
+			"forcedBindings" : {
+			}
+		},
+		"DELETE_ALL_USER_POSITION_EVENTS" : {
+			"sparql" : "DELETE {
+						?positionEvent rdf:type hbt:PositionEvent ; hbt:idReader ?idReader ; hbt:idActiveTag ?idActiveTag ; hbt:posX ?posX ; hbt:posY ?posY ; hbt:timestamp ?timestamp}
+						  WHERE{
+						?positionEvent rdf:type hbt:PositionEvent ; hbt:idReader ?idReader ; hbt:idActiveTag ?idActiveTag ; hbt:posX ?posX ; hbt:posY ?posY ; hbt:timestamp ?timestamp 
+						}",
+			"forcedBindings" : {
+			}
+		},
+		"DELETE_ALL_NOTIFICATION_EVENTS" : {
+			"sparql" : "DELETE {
+						?notificationEvent rdf:type hbt:NotificationEvent ; hbt:categoryNot ?category ; hbt:typeNot ?type ; hbt:idAbout ?about; hbt:idDest ?dest ; hbt:textNot ?text; hbt:location ?location; hbt:timestamp ?timestamp }
+						  WHERE{
+						?notificationEvent rdf:type hbt:NotificationEvent ; hbt:categoryNot ?category ; hbt:typeNot ?type ; hbt:idAbout ?about; hbt:idDest ?dest ; hbt:textNot ?text; hbt:location ?location; hbt:timestamp ?timestamp 
+						}",
+			"forcedBindings" : {
+			}
+		},
+		"DELETE_ALL_ANSWER_EVENTS" : {
+			"sparql" : "DELETE {
+						?idEvent rdf:type hbt:AnswerEvent ; hbt:timestamp ?timestamp ; hbt:refersTo ?idNotificationEvent ; hbt:textAns ?text }
+						  WHERE{
+						?idEvent rdf:type hbt:AnswerEvent ; hbt:timestamp ?timestamp ; hbt:refersTo ?idNotificationEvent ; hbt:textAns ?text 
+						}",
+			"forcedBindings" : {
 			}
 		}
 	
 	},
 	"queries" : {
-		"SELECT_ALL_USER_POSITION_EVENTS" : {
-			"sparql" : "SELECT ?userPositionEvent ?typeMsg ?idReader ?idActiveTag ?posX ?posY ?timestamp  WHERE{?userPositionEvent rdf:type hbt:UserPositionEvent ; hbt:typeMsg ?typeMsg ; hbt:idReader ?idReader ; hbt:idActiveTag ?idActiveTag ; hbt:posX ?posX ; hbt:posY ?posY ; hbt:timestamp ?timestamp }",
+		"SELECT_ALL_POSITION_EVENTS" : {
+			"sparql" : "SELECT ?idEvent ?idReader ?idActiveTag ?posX ?posY ?timestamp  
+				WHERE{?idEvent rdf:type hbt:PositionEvent ; hbt:idReader ?idReader ; hbt:idActiveTag ?idActiveTag ; hbt:posX ?posX ; hbt:posY ?posY ; hbt:timestamp ?timestamp }",
 			"forcedBindings" : {
-				"typeMsg" : {
-					"type" : "literal" ,
-					"value" : "position"}
+			}
+		},
+		"SELECT_ALL_CHAIR_EVENTS" : {
+			"sparql" : "SELECT ?idEvent ?typeChairEvent ?idChair ?idActiveTag ?timestamp  
+				WHERE{?idEvent rdf:type hbt:ChairEvent ; hbt:typeChairEvent ?typeChairEvent ; hbt:idChair ?idChair ; hbt:idActiveTag ?idActiveTag ; hbt:timestamp ?timestamp }",
+			"forcedBindings" : {
+			}
+		},
+		"SELECT_ALL_NOTIFICATION_EVENTS" : {
+			"sparql" : "SELECT ?idEvent ?category ?type ?about ?dest ?text ?location ?timestamp  
+				WHERE{?idEvent rdf:type hbt:NotificationEvent ; hbt:categoryNot ?category ; hbt:typeNot ?type ; hbt:idAbout ?about; hbt:idDest ?dest ; hbt:textNot ?text; hbt:location ?location; hbt:timestamp ?timestamp }",
+			"forcedBindings" : {
+			}
+		},
+		"SELECT_ALL_ANSWER_EVENTS" : {
+			"sparql" : "SELECT ?idEvent ?timestamp ?idNotificationEvent ?text 
+				WHERE{?idEvent rdf:type hbt:AnswerEvent ; hbt:timestamp ?timestamp ; hbt:refersTo ?idNotificationEvent ; hbt:textAns ?text }",
+			"forcedBindings" : {
 			}
 		}
 	}
