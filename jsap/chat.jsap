@@ -1,6 +1,6 @@
 {
 	"parameters" : {
-		"host" : "localhost" ,
+		"host" : "mml.arces.unibo.it" ,
 		"ports" : {
 			"http" : 8000 ,
 			"https" : 8443 ,
@@ -32,10 +32,10 @@
 	}
 	 ,
 	"graphs" : {
-		"default-graph-uri " : "" ,
-		"named-graph-uri" : "" ,
-		"using-graph-uri" : "" ,
-		"using-named-graph-uri" : ""}
+		"default-graph-uri " : "http://chat" ,
+		"named-graph-uri" : "http://chat" ,
+		"using-graph-uri" : "http://chat" ,
+		"using-named-graph-uri" : "http://chat"}
 	 ,
 	"namespaces" : {
 		"schema" : "http://schema.org/" ,
