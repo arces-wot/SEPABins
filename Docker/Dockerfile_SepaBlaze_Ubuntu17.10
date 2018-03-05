@@ -1,0 +1,22 @@
+FROM ubuntu:17.10
+MAINTAINER Fabio Viola <fabio.viola@unibo.it>
+ENV LANG C.UTF-8
+
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:webupd8team/java -y && \
+    apt-get update && \
+    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+    apt-get install -y git oracle-java8-installer && \    
+    git clone https://github.com/arces-wot/SEPABins && \
+    cd SEPABins/Endpoints/blazegraph
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+
+RUN pwd && \
+    cd SEPABins/Endpoints/blazegraph && \
+    java -jar blazegraph.jar &
+
+RUN cd SEPABins/Engine && \
+    cp endpoint-blazegraph.jpar endpoint.jpar && \
+    java -jar SEPAEngine_0.8.4.jar
