@@ -1,0 +1,20 @@
+{
+	"parameters" : {
+		"host" : "dbpedia.org" ,
+		"ports" : {
+			"http" : 80}
+		 ,
+		"paths" : {
+			"query" : "/sparql" ,
+			"update" : "/sparql"}
+		 ,
+		"methods" : {
+			"query" : "POST" ,
+			"update" : "GET"}
+		 ,
+		"formats" : {
+			"query" : "JSON" ,
+			"update" : "JSON"}
+		 ,
+		"default-graph-uri" : "http://dbpedia.org/sparql"}
+}
