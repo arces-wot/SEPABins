@@ -1,6 +1,6 @@
 {
 	"parameters" : {
-		"host" : "www.vaimee.com" ,
+		"host" : "mml.arces.unibo.it" ,
 		"concurrentRequests" : 5 ,
 		"ports" : {
 			"http" : 8000 ,
@@ -40,6 +40,12 @@
 		"qudt-unit-1-1" : "http://qudt.org/1.1/vocab/unit#" ,
 		"arces-monitor" : "http://wot.arces.unibo.it/monitor#",
 		"mqtt" : "http://wot.arces.unibo.it/mqtt#"}
+	 ,
+	"graphs" : {
+		"default-graph-uri " : "http://mqtt" ,
+		"named-graph-uri" : "http://mqtt" ,
+		"using-graph-uri" : "http://mqtt" ,
+		"using-named-graph-uri" : "http://mqtt"}
 	 ,
 	"extended" : {
 		"simulate" : false ,
