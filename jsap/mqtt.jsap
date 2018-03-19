@@ -42,10 +42,10 @@
 		"mqtt" : "http://wot.arces.unibo.it/mqtt#"}
 	 ,
 	"graphs" : {
-		"default-graph-uri " : "http://mqtt" ,
-		"named-graph-uri" : "http://mqtt" ,
-		"using-graph-uri" : "http://mqtt" ,
-		"using-named-graph-uri" : "http://mqtt"}
+		"default-graph-uri " : "http://default" ,
+		"named-graph-uri" : "http://default" ,
+		"using-graph-uri" : "http://default" ,
+		"using-named-graph-uri" : "http://default"}
 	 ,
 	"extended" : {
 		"simulate" : false ,
