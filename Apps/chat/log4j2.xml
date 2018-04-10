@@ -10,7 +10,7 @@
 		</Console>
 		<File name="File" fileName="logs/chat.csv">
 			<PatternLayout>
-				<Pattern>%d{UNIX_MILLIS} %m\n</Pattern>
+				<Pattern>%m\n</Pattern>
 			</PatternLayout>
 		</File>
 	</Appenders>
