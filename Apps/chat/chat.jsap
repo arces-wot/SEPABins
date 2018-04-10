@@ -34,7 +34,7 @@
 	 "extended":{
 	 	"type":"basic",
 	 	"base": 0,
-	 	"clients":2,
+	 	"clients":1,
 	 	"messages":100},
 	"graphs" : {
 		"default-graph-uri " : "" ,
