@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<CustomLevels>
+		<CustomLevel name="TIMING" intLevel="0" />
+	</CustomLevels>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{ISO8601} [%-5level] %t (%F:%L) %msg%n%throwable" />
+		</Console>
+		<File name="File" fileName="logs/chat.csv">
+			<PatternLayout>
+				<Pattern>%d{UNIX_MILLIS} %m\n</Pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+
+	<Loggers>
+		<Root level="off">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,6 +1,6 @@
 {
 	"parameters" : {
-		"host" : "localhost" ,
+		"host" : "mml.arces.unibo.it" ,
 		"concurrentRequests" : 5 ,
 		"ports" : {
 			"http" : 8000 ,
@@ -572,7 +572,7 @@
 			"sparql" : "SELECT ?observation ?topic WHERE {?observation rdf:type sosa:Observation ; arces-monitor:hasMqttTopic ?topic}"}
 		 ,
 		"OBSERVATIONS" : {
-			"sparql" : " SELECT ?location ?label ?value ?unit WHERE {?observation rdf:type sosa:Observation ; rdfs:label ?label ; sosa:hasFeatureOfInterest ?location ; sosa:hasResult ?quantity . ?quantity rdf:type qudt-1-1:QuantityValue ; qudt-1-1:unit ?unit ;  qudt-1-1:numericValue ?value}"}
+			"sparql" : " SELECT ?observation ?location ?label ?value ?unit WHERE {?observation rdf:type sosa:Observation ; rdfs:label ?label ; sosa:hasFeatureOfInterest ?location ; sosa:hasResult ?quantity . ?quantity rdf:type qudt-1-1:QuantityValue ; qudt-1-1:unit ?unit ;  qudt-1-1:numericValue ?value}"}
 		 ,
 		"OBSERVATIONS_BY_LOCATION" : {
 			"sparql" : " SELECT ?label ?value ?unit WHERE { ?observation sosa:hasFeatureOfInterest ?location ; rdf:type sosa:Observation ; rdfs:label ?label ; sosa:hasResult ?quantity . ?quantity rdf:type qudt-1-1:QuantityValue ; qudt-1-1:unit ?unit ;  qudt-1-1:numericValue ?value}" ,

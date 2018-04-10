@@ -32,10 +32,10 @@
 	}
 	 ,
 	"graphs" : {
-		"default-graph-uri " : "http://chat" ,
-		"named-graph-uri" : "http://chat" ,
-		"using-graph-uri" : "http://chat" ,
-		"using-named-graph-uri" : "http://chat"}
+		"default-graph-uri " : "" ,
+		"named-graph-uri" : "" ,
+		"using-graph-uri" : "" ,
+		"using-named-graph-uri" : ""}
 	 ,
 	"namespaces" : {
 		"schema" : "http://schema.org/" ,
