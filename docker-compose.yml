@@ -1,0 +1,15 @@
+version: '2'
+volumes:
+  sepa-volume:
+services:
+  blazegraph:
+    build: ./Endpoints/blazegraph/
+    ports:
+      - "9999:9999"
+  sepa:
+    build: ./Engine/
+    ports:
+      - "9000:9000"
+      - "8000:8000"
+    
+    
