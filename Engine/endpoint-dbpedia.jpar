@@ -9,12 +9,12 @@
 			"update" : "/sparql"}
 		 ,
 		"methods" : {
-			"query" : "POST" ,
+			"query" : "GET" ,
 			"update" : "GET"}
 		 ,
 		"formats" : {
 			"query" : "JSON" ,
 			"update" : "JSON"}
 		 ,
-		"default-graph-uri" : "http://dbpedia.org/sparql"}
+		"default-graph-uri" : "http://dbpedia.org"}
 }
