@@ -1,5 +1,5 @@
 {
-	"host": "localhost",
+	"host": "mml.arces.unibo.it",
 	"sparql11protocol": {
 		"protocol": "http",
 		"port": 8000,
