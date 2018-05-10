@@ -44,148 +44,32 @@
 		"using-named-graph-uri": "http://default"
 	},
 	"namespaces": {
-		"sepa": "http://wot.arces.unibo.it/sepa#",
+		"sepa": "http://mml.arces.unibo.it/sepa#",
 		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	},
 	"extended": {
-		"notificationMaxDelay": 2000,
-		"sequence": [
-			{
-				"name": "Update",
-				"type": "UPDATE",
-				"id": "U1",
-				"secure": false,
-				"passed": true
-			},
-			{
-				"name": "Query",
-				"type": "QUERY",
-				"id": "Q1",
-				"results": 1,
-				"secure": false,
-				"passed": true
-			},
-			{
-				"name": "Subscribe",
-				"type": "SUBSCRIBE",
-				"id": "Q1",
-				"results": 1,
-				"secure": false,
-				"passed": true
-			},
-			{
-				"name": "Update",
-				"type": "UPDATE",
-				"id": "U2",
-				"secure": false,
-				"passed": true
-			},
-			{
-				"name": "Notification",
-				"type": "WAIT_NOTIFICATION",
-				"passed": true
-			},
-			{
-				"name": "Unsubscribe",
-				"type": "UNSUBSCRIBE",
-				"secure": false,
-				"passed": true
-			},
-			{
-				"name": "Update",
-				"type": "UPDATE",
-				"id": "U2",
-				"secure": false,
-				"passed": true
-			},
-			{
-				"name": "Notification (not received)",
-				"type": "WAIT_NOTIFICATION",
-				"passed": false
-			},
-			{
-				"id": "RegisterMePlease!",
-				"name": "Register not allowed",
-				"type": "REGISTER",
-				"passed": false
-			},
-			{
-				"id": "SEPATest",
-				"name": "Register allowed",
-				"type": "REGISTER",
-				"passed": true
-			},
-			{
-				"name": "Get token",
-				"type": "GET_TOKEN",
-				"passed": true
-			},
-			{
-				"name": "Update (secure)",
-				"type": "UPDATE",
-				"id": "U1",
-				"secure": true,
-				"passed": true
-			},
-			{
-				"name": "Query (secure)",
-				"type": "QUERY",
-				"id": "Q1",
-				"results": 1,
-				"secure": true,
-				"passed": true
-			},
-			{
-				"name": "Subscribe (secure)",
-				"type": "SUBSCRIBE",
-				"id": "Q1",
-				"results": 1,
-				"secure": true,
-				"passed": true
-			},
-			{
-				"name": "Update (secure)",
-				"type": "UPDATE",
-				"id": "U2",
-				"secure": true,
-				"passed": true
-			},
-			{
-				"name": "Notification",
-				"type": "WAIT_NOTIFICATION",
-				"passed": true
-			},
-			{
-				"name": "Unsubscribe (secure)",
-				"type": "UNSUBSCRIBE",
-				"secure": true,
-				"passed": true
-			},
-			{
-				"name": "Update (secure)",
-				"type": "UPDATE",
-				"id": "U2",
-				"secure": true,
-				"passed": true
-			},
-			{
-				"name": "Notification (not received)",
-				"type": "WAIT_NOTIFICATION",
-				"passed": false
-			}
-		]
+		
 	},
 	"updates": {
-		"U1": {
-			"sparql": "delete {?s ?p ?o} insert {sepa:S sepa:P \"ვაიმეე\"} where {?s ?p ?o}"
+		"INSERT_KARTULI": {
+			"sparql": "insert {?sub sepa:kartuli \"ვაიმეე\"} where {BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#-\",STRUUID())) AS ?sub) }"
 		},
-		"U2": {
-			"sparql": "delete {?s ?p ?o} insert {sepa:S sepa:P \"123\"} where {?s ?p ?o}"
+		"INSERT_NUMBER": {
+			"sparql": "delete {?subOld sepa:number \"123\"} insert {?sub sepa:number \"123\"} where {?subOld sepa:number \"123\" . BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#-\",STRUUID())) AS ?sub) }"
+		},
+		"DELETE_ALL": {
+			"sparql": "delete {?x ?y ?z} where {?x ?y ?z}"
 		}
 	},
 	"queries": {
-		"Q1": {
-			"sparql": "select * where {?x ?y \"ვაიმეე\"}"
+		"KARTULI": {
+			"sparql": "select * where {?sub sepa:kartuli \"ვაიმეე\"}"
+		},
+		"NUMBER": {
+			"sparql": "select * where {?sub sepa:number ?obj}"
+		},
+		"ALL": {
+			"sparql": "select * where {?s ?p ?o}"
 		}
 	}
 }
