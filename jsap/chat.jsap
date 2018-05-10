@@ -1,16 +1,16 @@
 {
-	"host": "mml.arces.unibo.it",
+	"host": "localhost",
 	"sparql11protocol": {
 		"protocol": "http",
-		"port": 8890,
+		"port": 8000,
 		"query": {
-			"path": "/sparql",
-			"method": "GET",
+			"path": "/query",
+			"method": "POST",
 			"format": "JSON"
 		},
 		"update": {
-			"path": "/sparql",
-			"method": "GET",
+			"path": "/update",
+			"method": "POST",
 			"format": "JSON"
 		}
 	},

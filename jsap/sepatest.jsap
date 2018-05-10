@@ -1,41 +1,47 @@
 {
-	"parameters": {
-		"host": "localhost",
-		"ports": {
-			"http": 8000,
-			"https": 8443,
-			"ws": 9000,
-			"wss": 9443
+	"host": "localhost",
+	"sparql11protocol": {
+		"protocol": "http",
+		"port": 8000,
+		"query": {
+			"path": "/query",
+			"method": "POST",
+			"format": "JSON"
 		},
-		"paths": {
-			"query": "/query",
-			"update": "/update",
-			"subscribe": "/subscribe",
-			"register": "/oauth/register",
-			"tokenRequest": "/oauth/token",
-			"securePath": "/secure"
-		},
-		"methods": {
-			"query": "POST",
-			"update": "URL_ENCODED_POST"
-		},
-		"formats": {
-			"query": "JSON",
-			"update": "HTML"
+		"update": {
+			"path": "/update",
+			"method": "POST",
+			"format": "JSON"
+		}
+	},
+	"sparql11seprotocol": {
+		"protocol": "ws",
+		"availableProtocols": {
+			"ws": {
+				"port": 9000,
+				"path": "/subscribe"
+			},
+			"wss": {
+				"port": 9443,
+				"path": "/subscribe"
+			}
 		},
 		"security": {
-			"client_id": "jiaYPftwUV/4TTkN2dQc6WNXBYU+cJMG79I5SEW18ctKUCWxs1F5JzCf7uSterGW",
-			"client_secret": "Iz92skCzei8REglLhvVeTB+WW2/DW8hxyEoKu+n0aU52MW9t9KRq7hJ0Xun/NHhZ",
-			"jwt": "xabtQWoH8RJJk1FyKJ78J8h8i2PcWmAugfJ4J6nMd+1jVSoiipV4Pcv8bH+8wJLJ2yRaVage8/TzdZJiz2jdRP8bhkuNzFhGx6N1/1mgmvfKihLheMmcU0pLj5uKOYWFb+TB98n1IpNO4G69lia2YoR15LScBzibBPpmKWF+XAr5TeDDHDZQK4N3VBS/e3tFL/yOhkfC9Mw45s3mz83oydQazps2cFzookIhydKJWftK56PsU42Txsi/0zHaB5i2K5uCw8It/0FKvsuW0MAboo4X49sDS+AHTOnVUf67wnnPqJ2M1thThv3dIr/WNn+8xJovJWkwcpGP4T7nH7MOCfZzVnKTHr4hN3q14VUWHYnwLv53hPmxZ0jLJK4FVOu0N+WbAWXug07dfuC8K7jgkTEbh7T/Yj9MX5+tAQjT5+rK71nTQwVpyK1VzXNzbLWzBrJ+qcZZa++1HjBOQsLR8YOGlWD0EJEYyM5FhR24i3Ci/0BV0LrVqBotrceOefyZLUW4BA6uuAGpM1NZ3KfVivPhSiFwsj3hM1aMTR/WGwlaurT7h6RpBUl5xHktv/bFMIFeD/vby4Th0SxZ1JBJDDgrxtg/1azDYjfjNG+iqBL5DaFYicEbChPZzxp5dPQremWX/8aQPVzPQiNFvyjjs4iajSHHYrBU0p0a78k8teseDGhe7/D6hX9amOnihp4hS11fm7ZGwdPY4CxRL0Oq6JUPvFXfgwx2Bxzu935oUhS7rE1j0Gc7WJohcvF7aHdJPcvpjT7fBgECfljM1yPpAvUtPCjey6a4uyDuRYYc74DQpPLM+cl+glP9NfFB/b5e5BILbwO4J7ZDrWDQRuoiomQC1PdSM06rxCeD3CeVqtQT/V2pz50z1/E/molGwRAzSN0cCWAy7gLnPeBMWfJFP5xx1kay68wdr2mIkbFhyjyOTEUf4Qd0ugqnijAvKF4hWVPFyJc1SjvKXjGx8xh2yXBwKKbI/C4v9wPgJx1LrYzPCjMb4WT8/DPnWaMU4q6G",
-			"expires": "mNjmof5VwLs1C1/ei46D9w==",
+			"register": "/oauth/register",
+			"tokenRequest": "/oauth/token",
+			"securePath": "/secure",
+			"client_id": "jaJBrmgtqgW9jTLHeVbzSCH6ZIN1Qaf3XthmwLxjhw3WuXtt7VELmfibRNvOdKLs",
+			"client_secret": "fkITPTMsHUEb9gVVRMP5CAeIE1LrfBYtNLdqtlTVZ/CqgqcuzEw+ZcVegW5dMnIg",
+			"jwt": "xabtQWoH8RJJk1FyKJ78J8h8i2PcWmAugfJ4J6nMd+1jVSoiipV4Pcv8bH+8wJLJ2yRaVage8/TzdZJiz2jdRP8bhkuNzFhGx6N1/1mgmvfKihLheMmcU0pLj5uKOYWFb+TB98n1IpNO4G69lia2YoR15LScBzibBPpmKWF+XAr5TeDDHDZQK4N3VBS/e3tFL/yOhkfC9Mw45s3mz83oydQazps2cFzookIhydKJWfvx34vSSnhpkfcdYbZ+7KDaK5uCw8It/0FKvsuW0MAboo4X49sDS+AHTOnVUf67wnnPqJ2M1thThv3dIr/WNn+8xJovJWkwcpGP4T7nH7MOCfZzVnKTHr4hN3q14VUWHYkfP7DEKe7LScGYaT4RcuIfNmywI4fAWabAI4zqedYbd5lXmYhbSmXviPTOQPKxhmZptZ6F5Q178nfK6Bik4/0PwUlgMsC6oVFeJtyPWvjfEP0nx9tGMOt+z9Rvbd7enGWRFspUQJS2zzmGlHW1m5QNFdtOCfTLUOKkyZV4JUQxI1CaP+QbIyIihuQDvIMbmNgbvDNBkj9VQOzg1WB7mj4nn4w7T8I9MpOxAXxnaPUvDk8QnL/5leQcUiFVTa1zlzambQ8xr/BojFB52fIz8LsrDRW/+/0CJJVTFYD6OZ/gepFyLK4yOu/rOiTLT5CF9H2NZQd7bi85zSmi50RHFa3358LvL50c4G84Gz7mkDTBV9JxBhlWVNvD5VR58rPcgESwlGEL2YmOQCZzYGWjTc5cyI/50ZX83sTlTbfs+Tab3pBlsRQu36iNznleeKPj6uVvql+3uvcjMEBqqXvj8TKxMi9tCfHA1vt9RijOap8ROHtnIe4iMovPzkOCMiHJPcwbnyi+6jHbrPI18WGghceZQT23qKHDUYQo2NiehLQG9MQZA1Ncx2w4evBTBX8lkBS4aLoCUoTZTlNFSDOohUHJCbeig9eV77JbLo0a4+PNH9bgM/icSnIG5TidBGyJpEkVtD7+/KphwM89izJam3OT",
+			"expires": "04/5tRBT5n/VJ0XQASgs/w==",
 			"type": "XPrHEX2xHy+5IuXHPHigMw=="
 		}
 	},
 	"graphs": {
-		"default-graph-uri ": "http://default",
-		"named-graph-uri": "",
-		"using-graph-uri": "",
-		"using-named-graph-uri": ""
+		"default-graph-uri": "http://default",
+		"named-graph-uri": "http://default",
+		"using-graph-uri": "http://default",
+		"using-named-graph-uri": "http://default"
 	},
 	"namespaces": {
 		"sepa": "http://wot.arces.unibo.it/sepa#",
