@@ -51,11 +51,11 @@
 		
 	},
 	"updates": {
-		"INSERT_KARTULI": {
-			"sparql": "insert {?sub sepa:kartuli \"ვაიმეე\"} where {BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#-\",STRUUID())) AS ?sub) }"
+		"KARTULI": {
+			"sparql": "delete {?sub sepa:kartuli ?obj} where {?sub sepa:kartuli ?obj}; insert {?sub sepa:kartuli \"ვაიმეე\"} where {BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#\",STRUUID())) AS ?sub) }"
 		},
-		"INSERT_NUMBER": {
-			"sparql": "delete {?subOld sepa:number \"123\"} insert {?sub sepa:number \"123\"} where {?subOld sepa:number \"123\" . BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#-\",STRUUID())) AS ?sub) }"
+		"RANDOM": {
+			"sparql": "delete {?sub sepa:randomString ?string} where {?sub sepa:randomString ?string}; insert {?sub sepa:randomString ?string} where {BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#Subject-\",STRUUID())) AS ?sub) BIND(STRUUID() AS ?string) }"
 		},
 		"DELETE_ALL": {
 			"sparql": "delete {?x ?y ?z} where {?x ?y ?z}"
@@ -65,10 +65,10 @@
 		"KARTULI": {
 			"sparql": "select * where {?sub sepa:kartuli \"ვაიმეე\"}"
 		},
-		"NUMBER": {
-			"sparql": "select * where {?sub sepa:number ?obj}"
+		"RANDOM": {
+			"sparql": "select * where {?sub sepa:randomString ?obj}"
 		},
-		"ALL": {
+		"QUERY_ALL": {
 			"sparql": "select * where {?s ?p ?o}"
 		}
 	}

@@ -9,18 +9,16 @@ For more details on the current implementation and how you can contribute please
 Clone the repository: `git clone https://github.com/arces-wot/SEPABins.git`
 
 ## Usage
-The SEPA broker needs to connect to a SPARQL endpoint supporting the [SPARQL 1.1 Protocol](https://www.w3.org/TR/sparql11-protocol/). For you convenience, the repository includes an instance of ([Blazegraph](https://www.blazegraph.com/).
+The SEPA broker needs to connect to a SPARQL endpoint supporting the [SPARQL 1.1 Protocol](https://www.w3.org/TR/sparql11-protocol/). For you convenience, the repository includes an instance of [Blazegraph](https://www.blazegraph.com/).
 
-### Start a SPARQL endpoint
+### Start the SPARQL endpoint
 1. Move to the `endpoint` folder
 2. Run the endpoint: `java -server -Xmx4g -jar blazegraph.jar`
 
 ### Start the SEPA broker
 1. Move to the `engine` folder
 2. Run the broker: `java -jar SEPAEngine_X_Y_Z.jar`
-3. The broker uses two configuration files: `engine.jpar` and `endpoint.jpar`. The former contains the broker configuration parameters, while the latter contains the endpoint configuration parameters. If these files are not present, they are created with defaults the first time the broker is executed.
 
-<a name="running"></a>
 ```
 ##########################################################################################
 # SEPA Broker                                                                            #
@@ -34,10 +32,7 @@ The SEPA broker needs to connect to a SPARQL endpoint supporting the [SPARQL 1.1
 # WEB: http://site.unibo.it/wot                                                          #
 # WIKI: https://github.com/arces-wot/SEPA/wiki                                         #
 ##########################################################################################
-2018-05-10T12:52:08,440 [WARN ] main (EngineProperties.java:73) engine.jpar (No such file or directory)
-2018-05-10T12:52:08,459 [WARN ] main (EngineProperties.java:84) USING DEFAULTS. Edit "engine.jpar" (if needed) and run again the broker
-2018-05-10T12:52:08,461 [WARN ] main (SPARQL11Properties.java:146) endpoint.jpar (No such file or directory)
-2018-05-10T12:52:08,462 [WARN ] main (SPARQL11Properties.java:156) USING DEFAULTS. Edit "endpoint.jpar" (if needed) and run again the broker
+
 SPARQL 1.1 endpoint
 ----------------------
 SPARQL 1.1 Query     | http://localhost:9999/blazegraph/namespace/kb/sparql (Method: POST)
@@ -60,8 +55,28 @@ SPARQL 1.1 Subscribe | ws://<your local address>:9000/subscribe
 *                                Let Things Talk!                                       *
 *****************************************************************************************
 ```
+
+The broker uses two configuration files: `engine.jpar` and `endpoint.jpar`. The former contains the broker configuration parameters, while the latter contains the endpoint configuration parameters. If these files are not present, they are created with defaults the first time the broker is executed. The following message logs will be shown:
+
+```
+[WARN ] main engine.jpar (No such file or directory)
+[WARN ] main USING DEFAULTS. Edit "engine.jpar" (if needed) and run again the broker
+[WARN ] main endpoint.jpar (No such file or directory)
+[WARN ] main USING DEFAULTS. Edit "endpoint.jpar" (if needed) and run again the broker
+```
+
+To close a running instance of a broker just type `CTRL+X`:
+
+```
+Stopping...
+Stopping HTTP gate...
+Stopping WS gate...
+Stopped...bye bye :-)
+```
+
 ## Configure
-SEPA broker configuration parameters are stored in a JSON file (named `broker.jpar`) like the following:
+SEPA broker configuration parameters are stored in a JSON file (named `engine.jpar`) like the following:
+
 ```json
 {
 	"parameters": {
@@ -98,9 +113,11 @@ SEPA broker configuration parameters are stored in a JSON file (named `broker.jp
 ```
 The `ports`, `paths` and `secure` members within the `gates` object are used to specify the URLs at which the broker is listening for requests. The above default configuration initializes the broker has shown here:
 
+```
 SPARQL 1.1 Query     | http://<your local address>:8000/query
 SPARQL 1.1 Update    | http://<your local address>:8000/update
 SPARQL 1.1 Subscribe | ws://<your local address>:9000/subscribe
+```
 
 Timeouts on update and query processing on the SPARQL endpoint are specified respectively by the `updateTimeout` and `queryTimeout` members. It also possible to setup the maximum number of concurrent requests that can be processed by the endpoint (see `maxConcurrentRequests`). The `timeout` member of the `spu` allows to specify the timeout subscription processing. Eventually, the `queueSize`is the maximum number of pending requests after which the broker starts to deny new requests.
 
@@ -111,7 +128,9 @@ The SEPA broker allows to use a user generated JKS. Run `java -jar engine-x.y.z.
 ## JMX monitoring
 The SEPA broker is also distributed with a default [JMX](http://www.oracle.com/technetwork/articles/java/javamanagement-140525.html) configuration `jmx.properties` (including the `jmxremote.password` and `jmxremote.access` files for password and user grants). Remember to change password file permissions using: `chmod 600 jmxremote.password`. To enable remote JMX, the broker must be run as follows: `java -Dcom.sun.management.config.file=jmx.properties -jar engine-x.y.z.jar`. Using [`jconsole`](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) is possible to monitor and control the most important broker parameters. By default, the port is `5555` and the `root:root` credentials grant full control (read/write).
 
-## Experiment with the Dashboard
+## Experiment with the Java Dashboard
 In the `Tools` folder, you can find an application (`SEPADashboard_X_Y_Z.jar`) that allows you to interact and experiment the functionalities offered by SEPA. Just double click on the jar or run it from a command shell as: `java -jar Dashboard_X_Y_Z.jar` 
 
 SEPA applications are built around a [JSON Semantic Application Profile (JSAP)](http://mml.arces.unibo.it/TR/jsap.html). Examples of JSAP files can be found in the `jsap` folder. You should start by loading the `sepatest.jsap` file into the Dashboard...enjoy!
+
+
