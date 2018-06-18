@@ -1,5 +1,11 @@
 {
-	"host": "localhost",
+	"host": "mml.arces.unibo.it",
+	"authentication": {
+		"basic": {
+			"user": "admin",
+			"pass": "admin"
+		}
+	},
 	"sparql11protocol": {
 		"protocol": "http",
 		"port": 8000,
@@ -54,11 +60,14 @@
 		"KARTULI": {
 			"sparql": "delete {?sub sepa:kartuli ?obj} where {?sub sepa:kartuli ?obj}; insert {?sub sepa:kartuli \"ვაიმეე\"} where {BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#\",STRUUID())) AS ?sub) }"
 		},
-		"RANDOM": {
-			"sparql": "delete {?sub sepa:randomString ?string} where {?sub sepa:randomString ?string}; insert {?sub sepa:randomString ?string} where {BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#Subject-\",STRUUID())) AS ?sub) BIND(STRUUID() AS ?string) }"
+		"RANDOM_STRING": {
+			"sparql": "insert {?sub sepa:randomString ?string} where {BIND(IRI(CONCAT(\"http://mml.arces.unibo.it/sepa#Subject-\",STRUUID())) AS ?sub) BIND(STRUUID() AS ?string) }"
 		},
 		"DELETE_ALL": {
-			"sparql": "delete {?x ?y ?z} where {?x ?y ?z}"
+			"sparql": "delete where {?x ?y ?z}",
+			"graphs": {
+				"using-graph-uri": "http://www.dotone.eu/"
+			}
 		}
 	},
 	"queries": {
@@ -69,7 +78,10 @@
 			"sparql": "select * where {?sub sepa:randomString ?obj}"
 		},
 		"QUERY_ALL": {
-			"sparql": "select * where {?s ?p ?o}"
+			"sparql": "select * where {?s ?p ?o}",
+			"graphs": {
+				"default-graph-uri": "http://www.dotone.eu/"
+			}
 		}
 	}
 }
