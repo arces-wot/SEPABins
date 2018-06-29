@@ -33,10 +33,10 @@
 		}
 	},
 	"graphs": {
-		"default-graph-uri": "http://wot.arces.unibo.it/swamp/live",
-		"named-graph-uri": "http://wot.arces.unibo.it/swamp/live",
-		"using-graph-uri": "http://wot.arces.unibo.it/swamp/live",
-		"using-named-graph-uri": "http://wot.arces.unibo.it/swamp/live"
+		"default-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt",
+		"named-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt",
+		"using-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt",
+		"using-named-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt"
 	},
 	"namespaces": {
 		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
