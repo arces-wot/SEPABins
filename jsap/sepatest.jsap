@@ -1,5 +1,5 @@
 {
-	"host": "mml.arces.unibo.it",
+	"host": "localhost",
 	"authentication": {
 		"basic": {
 			"user": "admin",

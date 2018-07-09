@@ -1,5 +1,5 @@
 {
-	"host": "mml.arces.unibo.it",
+	"host": "localhost",
 	"authentication": {
 		"register": "https://mml.arces.unibo.it:8443/oauth/register",
 		"tokenRequest": "https://mml.arces.unibo.it:8443/oauth/token",
