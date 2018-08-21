@@ -581,6 +581,20 @@
 					"value": "12345.67890"
 				}
 			}
+		},
+		"UPDATE_OBSERVATION_LABEL": {
+			"sparql": "DELETE {?observation rdfs:label ?oldLabel} INSERT {?observation rdfs:label ?label} WHERE {?observation rdf:type sosa:Observation . OPTIONAL{?observation rdfs:label ?oldLabel}}",
+			"forcedBindings": {
+				"label": {
+					"type": "literal",
+					"datatype": "xsd:string",
+					"value": "new value"
+				},
+				"observation": {
+					"type": "uri",
+					"value": "arces-monitor:ObservationXYZ"
+				}
+			}
 		}
 	},
 	"queries": {
