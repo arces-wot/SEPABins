@@ -15,6 +15,30 @@ The SEPA broker needs to connect to a SPARQL endpoint supporting the [SPARQL 1.1
 1. Move to the `endpoint` folder
 2. Run the endpoint: `java -server -Xmx4g -jar blazegraph.jar`
 
+Blazegraph would print on the screen something like the following:
+```
+...
+...
+WARN : NanoSparqlServer.java:517: Starting NSS
+WARN : ServiceProviderHook.java:171: Running.
+serviceURL: http://192.168.1.11:9999
+
+
+Welcome to the Blazegraph(tm) Database.
+
+Go to http://192.168.1.11:9999/blazegraph/ to get started.
+```
+
+Otherwise, Blazegraph failed to start. This could be related to issues with the JVM. We had problems with Java 9 systems. If you receive a message like the following:
+```
+ERROR: Banner.java:160: Uncaught exception in thread
+java.lang.NullPointerException
+	at com.bigdata.rdf.sail.webapp.StandaloneNanoSparqlServer.main(StandaloneNanoSparqlServer.java:142)
+```
+try to start using a specific Java 8 JRE as follows:
+
+`/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/bin/java -server -Xmx4g -jar /Users/luca/SEPABins/Endpoint/blazegraph.jar` 
+
 ### Start the SEPA broker
 1. Move to the `engine` folder
 2. Run the broker: `java -jar SEPAEngine_X_Y_Z.jar`
