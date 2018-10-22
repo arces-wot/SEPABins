@@ -89,26 +89,6 @@
 				"name" : "Mars",
 				"lat" : 44.489942,
 				"lon" : 11.356873
-			},
-			"arces-monitor:Mars_Office" :{
-				"name" : "Office in Mars",
-				"lat" : 44.489942,
-				"lon" : 11.356873
-			},
-			"arces-monitor:Ares" :{
-				"name" : "Ares",
-				"lat" : 44.492674,
-				"lon" : 11.330429
-			},
-			"arces-monitor:Star" :{
-				"name" : "Star",
-				"lat" : 44.488166,
-				"lon" : 11.328950
-			}
-		},
-		"links": {
-			"arces-monitor:Mars" : {
-				"childs" : ["arces-monitor:Mars_Office"]
 			}
 		},
 		"semantic-mappings": {
