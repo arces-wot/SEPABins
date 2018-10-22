@@ -122,11 +122,11 @@ In the `Tools` folder, you can find an application (`SEPADashboard_X_Y_Z.jar`) t
 1. Click on the `Load JSAP` button. Move to the `Apps/mqtt` and locate the `arces-demo.jsap`. Open it.
 2. Query for observations: select `OBSERVATIONS` on the right box and click `QUERY`
 
-![](dashboard1.png)
+![](./dashboard1.png)
 
 Now it's time to use the SEPA magic...press `SUBSCRIBE`. A new tab is opened with the notifications on sensor data changes. 
 
-![](dashboard2.png)
+![](./dashboard2.png)
 
 ## Configure
 The broker uses two configuration files: `engine.jpar` and `endpoint.jpar`. The former contains the broker configuration parameters, while the latter contains the endpoint configuration parameters. If these files are not present, they are created with defaults the first time the broker is executed. The following message logs will be shown:
