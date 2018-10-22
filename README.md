@@ -14,7 +14,7 @@ The SEPA broker needs to connect to a SPARQL endpoint supporting the [SPARQL 1.1
 ### Start the SPARQL endpoint
 1. Open a command shell
 2. Move to the `endpoint` folder
-3. Run the endpoint: `java -server -Xmx4g -jar blazegraph.jar`
+3. Run the endpoint: `java -jar blazegraph.jar`
 
 If Blazegraph started correctly, you would see something like the following:
 

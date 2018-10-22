@@ -54,16 +54,16 @@
 	"extended": {
 		"simulate": false,
 		"simulation": {
-			"italy/site1/soilmoisture": [
+			"5CCF7F15676D/temperature": [
 				35,
 				75
 			],
-			"italy/site1/pressure": [
-				900,
-				1100
-			],
-			"italy/site1/temperature": [
+			"5CCF7F1B599E/temperature": [
 				15,
+				30
+			],
+			"5CCF7F151DC9/temperature": [
+				10,
 				40
 			]
 		},
