@@ -52,19 +52,19 @@
 		"gn": "http://www.geonames.org/ontology#"
 	},
 	"extended": {
-		"simulate": false,
+		"simulate": true,
 		"simulation": {
-			"5CCF7F15676D/temperature": [
-				35,
-				75
-			],
 			"5CCF7F1B599E/temperature": [
 				15,
-				30
+				35
 			],
-			"5CCF7F151DC9/temperature": [
+			"5CCF7F15676D/temperature": [
 				10,
-				40
+				20
+			],
+			"5CCF7F1B599E/humidity": [
+				35,
+				90
 			]
 		},
 		"mqtt": {
@@ -88,419 +88,54 @@
 				"value": "moistureValue"
 			}
 		},
-		"places" :{
-			"arces-monitor:Mars" :{
-				"name" : "Mars",
-				"lat" : 44.489942,
-				"lon" : 11.356873
-			},
-			"arces-monitor:Mars_Office" :{
-				"name" : "Office in Mars",
-				"lat" : 44.489942,
-				"lon" : 11.356873
-			},
-			"arces-monitor:Ares" :{
-				"name" : "Ares",
-				"lat" : 44.492674,
-				"lon" : 11.330429
-			},
-			"arces-monitor:Star" :{
-				"name" : "Star",
-				"lat" : 44.488166,
-				"lon" : 11.328950
+		"places": {
+			"arces-monitor:Mars": {
+				"name": "Mars",
+				"lat": 44.489942,
+				"lon": 11.356873
 			}
 		},
 		"links": {
-			"arces-monitor:Mars" : {
-				"childs" : ["arces-monitor:Mars_Office"]
+			"arces-monitor:Mars": {
+				"childs": [
+					"arces-monitor:Mars_Office"
+				]
 			}
 		},
 		"semantic-mappings": {
-			"/ffa574972ab9/applink/107/001BC50C700009CD": {
-				"observation": "arces-monitor:001BC50C700009CD-DASH7-Temperature",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Star",
-				"comment": "Temperature sensor used to show the need of a new air conditioning system in SEHM lab",
-				"label": "Temperature SEHM lab"
-			},
-			"/ffa574972ab9/applink/107/001BC50C700009BB": {
-				"observation": "arces-monitor:001BC50C700009BB-DASH7-Temperature",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Star",
-				"comment": "emperature sensor used to show the need of a new air conditioning system in ST office",
-				"label": "Temperature ST office"
-			},
 			"5CCF7F15676D/temperature": {
 				"observation": "arces-monitor:5CCF7F15676D-temperature",
 				"unit": "qudt-unit-1-1:DegreeCelsius",
 				"location": "arces-monitor:Mars",
 				"comment": "Temperatura zona rack sala server Toffano",
-				"label": "Temperatura zona rack"
-			},
-			"5CCF7F15676D/humidity": {
-				"observation": "arces-monitor:5CCF7F15676D-humidity",
-				"unit": "qudt-unit-1-1:Percent",
-				"location": "arces-monitor:Mars",
-				"comment": "Umidità zona rack sala server Toffano",
-				"label": "Umidità zona rack"
+				"label": "Server rack zone temperature (ARCES, Toffano)"
 			},
 			"5CCF7F1B599E/temperature": {
 				"observation": "arces-monitor:5CCF7F1B599E-temperature",
 				"unit": "qudt-unit-1-1:DegreeCelsius",
 				"location": "arces-monitor:Mars",
 				"comment": "Temperatura zona finestra sala server Toffano",
-				"label": "Temperatura zona finestra"
+				"label": "External temperature (ARCES, Toffano)"
 			},
 			"5CCF7F1B599E/humidity": {
 				"observation": "arces-monitor:5CCF7F1B599E-humidity",
 				"unit": "qudt-unit-1-1:Percent",
 				"location": "arces-monitor:Mars",
 				"comment": "Umidità zona finestra sala server Toffano",
-				"label": "Umidità zona finestra"
-			},
-			"5CCF7F151DC9/temperature": {
-				"observation": "arces-monitor:5CCF7F151DC9-temperature",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura esterna sala server Toffano",
-				"label": "Temperatura esterna"
-			},
-			"5CCF7F1B58AC/temperature": {
-				"observation": "arces-monitor:5CCF7F1B58AC-temperature",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Star",
-				"comment": "Temperatura zona rack sala server Pepoli",
-				"label": "Temperatura zona rack"
-			},
-			"5CCF7F1B58AC/humidity": {
-				"observation": "arces-monitor:5CCF7F1B58AC-humidity",
-				"unit": "qudt-unit-1-1:Percent",
-				"location": "arces-monitor:Star",
-				"comment": "Umidità zona rack sala server Pepoli",
-				"label": "Umidità zona rack"
-			},
-			"arces/servers/mars/marsamba/hd/sda/temperature": {
-				"observation": "arces-monitor:ServerSambaHDDSda",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server SAMBA HDD SDA",
-				"label": "Temperatura Server SAMBA HDD SDA"
-			},
-			"arces/servers/mars/marsamba/hd/sdb/temperature": {
-				"observation": "arces-monitor:ServerSambaHDDSdb",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server SAMBA HDD SDB",
-				"label": "Temperatura Server SAMBA HDD SDB"
-			},
-			"arces/servers/mars/giove/hd/sda/temperature": {
-				"observation": "arces-monitor:ServerGioveHDDSda",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE HDD SDA",
-				"label": "Temperatura Server GIOVE HDD SDA"
-			},
-			"arces/servers/mars/giove/hd/sdb/temperature": {
-				"observation": "arces-monitor:ServerGioveHDDSdb",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE HDD SDB",
-				"label": "Temperatura Server GIOVE HDD SDB"
-			},
-			"arces/servers/mars/giove/hd/sdc/temperature": {
-				"observation": "arces-monitor:ServerGioveHDDSdc",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE HDD SDC",
-				"label": "Temperatura Server GIOVE HDD SDC"
-			},
-			"arces/servers/mars/giove/hd/sdd/temperature": {
-				"observation": "arces-monitor:ServerGioveHDDSdd",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE HDD SDD",
-				"label": "Temperatura Server GIOVE HDD SDD"
-			},
-			"arces/servers/mars/giove/hd/sdf/temperature": {
-				"observation": "arces-monitor:ServerGioveHDDSdf",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE HDD SDF",
-				"label": "Temperatura Server GIOVE HDD SDF"
-			},
-			"arces/servers/mars/giove/hd/sdg/temperature": {
-				"observation": "arces-monitor:ServerGioveHDDSdg",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE HDD SDG",
-				"label": "Temperatura Server GIOVE HDD SDG"
-			},
-			"arces/servers/mars/giove/hd/sdh/temperature": {
-				"observation": "arces-monitor:ServerGioveHDDSdh",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE HDD SDH",
-				"label": "Temperatura Server GIOVE HDD SDH"
-			},
-			"arces/servers/mars/giove/cpu/core-6/temperature": {
-				"observation": "arces-monitor:ServerGiove6",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE Core 6",
-				"label": "Temperatura Server GIOVE Core 6"
-			},
-			"arces/servers/mars/giove/cpu/core-5/temperature": {
-				"observation": "arces-monitor:ServerGiove5",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE Core 5",
-				"label": "Temperatura Server GIOVE Core 5"
-			},
-			"arces/servers/mars/giove/cpu/core-4/temperature": {
-				"observation": "arces-monitor:ServerGiove4",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE Core 4",
-				"label": "Temperatura Server GIOVE Core 4"
-			},
-			"arces/servers/mars/giove/cpu/core-3/temperature": {
-				"observation": "arces-monitor:ServerGiove3",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE Core 3",
-				"label": "Temperatura Server GIOVE Core 3"
-			},
-			"arces/servers/mars/giove/cpu/core-2/temperature": {
-				"observation": "arces-monitor:ServerGiove2",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE Core 2",
-				"label": "Temperatura Server GIOVE Core 2"
-			},
-			"arces/servers/mars/giove/cpu/core-1/temperature": {
-				"observation": "arces-monitor:ServerGiove1",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server GIOVE Core 1",
-				"label": "Temperatura Server GIOVE Core 1"
-			},
-			"arces/servers/mars/mml/hd/sda/temperature": {
-				"observation": "arces-monitor:ServerMmlHDDSda",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML HDD SDA",
-				"label": "Temperatura Server MML HDD SDA"
-			},
-			"arces/servers/mars/mml/hd/sdb/temperature": {
-				"observation": "arces-monitor:ServerMmlHDDSdb",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML HDD SDB",
-				"label": "Temperatura Server MML HDD SDB"
-			},
-			"arces/servers/mars/mml/cpu/core-6/temperature": {
-				"observation": "arces-monitor:ServerMml6",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML Core 6",
-				"label": "Temperatura Server MML Core 6"
-			},
-			"arces/servers/mars/mml/cpu/core-5/temperature": {
-				"observation": "arces-monitor:ServerMml5",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML Core 5",
-				"label": "Temperatura Server MML Core 5"
-			},
-			"arces/servers/mars/mml/cpu/core-4/temperature": {
-				"observation": "arces-monitor:ServerMml4",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML Core 4",
-				"label": "Temperatura Server MML Core 4"
-			},
-			"arces/servers/mars/mml/cpu/core-3/temperature": {
-				"observation": "arces-monitor:ServerMml3",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML Core 3",
-				"label": "Temperatura Server MML Core 3"
-			},
-			"arces/servers/mars/mml/cpu/core-2/temperature": {
-				"observation": "arces-monitor:ServerMml2",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML Core 2",
-				"label": "Temperatura Server MML Core 2"
-			},
-			"arces/servers/mars/mml/cpu/core-1/temperature": {
-				"observation": "arces-monitor:ServerMml1",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Mars",
-				"comment": "Temperatura Server MML Core 1",
-				"label": "Temperatura Server MML Core 1"
-			},
-			"arces/servers/ares/ercole/cpu/core-20/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore20",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 20",
-				"label": "Temperatura Server ERCOLE Core 20"
-			},
-			"arces/servers/ares/ercole/cpu/core-19/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore19",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 19",
-				"label": "Temperatura Server ERCOLE Core 19"
-			},
-			"arces/servers/ares/ercole/cpu/core-18/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore18",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 18",
-				"label": "Temperatura Server ERCOLE Core 18"
-			},
-			"arces/servers/ares/ercole/cpu/core-17/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore17",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 17",
-				"label": "Temperatura Server ERCOLE Core 17"
-			},
-			"arces/servers/ares/ercole/cpu/core-16/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore16",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 16",
-				"label": "Temperatura Server ERCOLE Core 16"
-			},
-			"arces/servers/ares/ercole/cpu/core-15/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore15",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 15",
-				"label": "Temperatura Server ERCOLE Core 15"
-			},
-			"arces/servers/ares/ercole/cpu/core-14/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore14",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 14",
-				"label": "Temperatura Server ERCOLE Core 14"
-			},
-			"arces/servers/ares/ercole/cpu/core-13/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore13",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 13",
-				"label": "Temperatura Server ERCOLE Core 13"
-			},
-			"arces/servers/ares/ercole/cpu/core-12/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore12",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 12",
-				"label": "Temperatura Server ERCOLE Core 12"
-			},
-			"arces/servers/ares/ercole/cpu/core-11/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore11",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 11",
-				"label": "Temperatura Server ERCOLE Core 11"
-			},
-			"arces/servers/ares/ercole/cpu/core-10/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore10",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 10",
-				"label": "Temperatura Server ERCOLE Core 10"
-			},
-			"arces/servers/ares/ercole/cpu/core-9/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore9",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 9",
-				"label": "Temperatura Server ERCOLE Core 9"
-			},
-			"arces/servers/ares/ercole/cpu/core-8/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore8",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 8",
-				"label": "Temperatura Server ERCOLE Core 8"
-			},
-			"arces/servers/ares/ercole/cpu/core-7/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore7",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 7",
-				"label": "Temperatura Server ERCOLE Core 7"
-			},
-			"arces/servers/ares/ercole/cpu/core-6/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore6",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 6",
-				"label": "Temperatura Server ERCOLE Core 6"
-			},
-			"arces/servers/ares/ercole/cpu/core-5/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore5",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 5",
-				"label": "Temperatura Server ERCOLE Core 5"
-			},
-			"arces/servers/ares/ercole/cpu/core-4/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore4",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 4",
-				"label": "Temperatura Server ERCOLE Core 4"
-			},
-			"arces/servers/ares/ercole/cpu/core-3/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore3",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 3",
-				"label": "Temperatura Server ERCOLE Core 3"
-			},
-			"arces/servers/ares/ercole/cpu/core-2/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore2",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 2",
-				"label": "Temperatura Server ERCOLE Core 2"
-			},
-			"arces/servers/ares/ercole/cpu/core-1/temperature": {
-				"observation": "arces-monitor:ServerErcoleCore1",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE Core 1",
-				"label": "Temperatura Server ERCOLE Core 1"
-			},
-			"arces/servers/ares/ercole/hd/sda/temperature": {
-				"observation": "arces-monitor:ServerErcoleHDDSda",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE HDD SDA",
-				"label": "Temperatura Server ERCOLE HDD SDA"
-			},
-			"arces/servers/ares/ercole/hd/sdb/temperature": {
-				"observation": "arces-monitor:ServerErcoleHDDSdb",
-				"unit": "qudt-unit-1-1:DegreeCelsius",
-				"location": "arces-monitor:Ares",
-				"comment": "Temperatura Server ERCOLE HDD SDB",
-				"label": "Temperatura Server ERCOLE HDD SDB"
+				"label": "External humidity (ARCES, Toffano)"
 			}
 		}
 	},
 	"updates": {
-		"DELETE_ALL" : {
-			"sparql" : "WITH <http://wot.arces.unibo.it/monitor/mqtt> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"},
-		"DELETE_ALL_LOGS" : {
-			"sparql" : "WITH <http://wot.arces.unibo.it/monitor/mqtt/log> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"},
+		"DELETE_ALL": {
+			"sparql": "WITH <http://wot.arces.unibo.it/monitor/mqtt> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		},
+		"DELETE_ALL_LOGS": {
+			"sparql": "WITH <http://wot.arces.unibo.it/monitor/mqtt/log> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		},
+		"DELETE_ALL_MESSAGES": {
+			"sparql": "WITH <http://wot.arces.unibo.it/monitor/mqtt/message> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		},
 		"REMOVE_PLACE": {
 			"sparql": "WITH <http://wot.arces.unibo.it/monitor/mqtt> DELETE {?place rdf:type schema:Place; schema:name ?name ;  schema:GeoCoordinates ?coordinate . ?coordinate schema:latitude ?lat ; schema:longitude ?lon} WHERE {?place rdf:type schema:Place; schema:name ?name ;  schema:GeoCoordinates ?coordinate . ?coordinate schema:latitude ?lat ; schema:longitude ?lon}",
 			"forcedBindings": {
@@ -560,7 +195,7 @@
 			}
 		},
 		"MQTT_MESSAGE": {
-			"sparql": "WITH <http://wot.arces.unibo.it/monitor/mqtt> DELETE {?oldMessage rdf:type mqtt:Message ; mqtt:hasValue ?oldValue ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker ; mqtt:timestamp ?oldTimestamp} INSERT {?message rdf:type mqtt:Message ; mqtt:hasValue ?value ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker ; mqtt:timestamp ?timestamp} WHERE {OPTIONAL{?oldMessage rdf:type mqtt:Message ; mqtt:hasValue ?oldValue ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker ; mqtt:timestamp ?oldTimestamp} . BIND(IRI(CONCAT(\"http://wot.arces.unibo.it/mqtt#Message-\",STRUUID())) AS ?message) . BIND(now() AS ?timestamp)}",
+			"sparql": "WITH <http://wot.arces.unibo.it/monitor/mqtt/message> DELETE {?oldMessage rdf:type mqtt:Message ; mqtt:hasValue ?oldValue ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker ; mqtt:timestamp ?oldTimestamp} INSERT {_:message rdf:type mqtt:Message ; mqtt:hasValue ?value ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker ; mqtt:timestamp ?timestamp} WHERE {OPTIONAL{?oldMessage rdf:type mqtt:Message ; mqtt:hasValue ?oldValue ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker ; mqtt:timestamp ?oldTimestamp} . BIND(now() AS ?timestamp)}",
 			"forcedBindings": {
 				"value": {
 					"type": "literal",
@@ -571,29 +206,22 @@
 					"value": "mqttTopicXYZ"
 				},
 				"broker": {
-					"type": "uri",
+					"type": "literal",
 					"value": "tcp://giove.arces.unibo.it:52887"
 				}
 			}
 		},
 		"LOG_QUANTITY": {
-			"sparql": "WITH <http://wot.arces.unibo.it/monitor/log> INSERT {?log arces-monitor:refersTo ?quantity ; qudt-1-1:numericValue ?value ; qudt-1-1:unit ?unit ; time:inXSDDateTimeStamp ?timestamp} WHERE {BIND(IRI(CONCAT(\"http://wot.arces.unibo.it/monitor#Log-\",STRUUID())) AS ?log) . BIND(now() AS ?timestamp)}",
-			"graphs": {
-				"using-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt/log",
-				"using-named-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt/log"
-			},
+			"sparql": "INSERT {GRAPH <http://wot.arces.unibo.it/monitor/mqtt/log> {_:log arces-monitor:refersTo ?observation ; qudt-1-1:numericValue ?value ; time:inXSDDateTimeStamp ?timestamp}} WHERE {BIND(now() AS ?timestamp)}",
 			"forcedBindings": {
-				"quantity": {
+				"observation": {
 					"type": "uri",
 					"value": "arces-monitor:QuantityValueXYZ"
 				},
-				"unit": {
-					"type": "uri",
-					"value": "qudt-unit-1-1:DegreeCelsius"
-				},
 				"value": {
 					"type": "literal",
-					"value": "1234"
+					"value": "1234",
+					"datatype": "xsd:decimal"
 				}
 			}
 		},
@@ -737,7 +365,11 @@
 			}
 		},
 		"MQTT_MESSAGES": {
-			"sparql": "SELECT * WHERE {?message rdf:type mqtt:Message ; mqtt:hasValue ?value ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker}"
+			"sparql": "SELECT ?topic ?value ?broker WHERE {?message rdf:type mqtt:Message ; mqtt:hasValue ?value ; mqtt:hasTopic ?topic ; mqtt:hasBroker ?broker}",
+			"graphs": {
+				"default-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt/message",
+				"named-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt/message"
+			}
 		}
 	}
 }
