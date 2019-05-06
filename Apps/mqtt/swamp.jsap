@@ -1,5 +1,5 @@
 {
-	"host": "mml.arces.unibo.it",
+	"host": "localhost",
 	"oauth": {
 		"enable": false,
 		"register": "https://localhost:8443/oauth/register",
@@ -928,3 +928,4 @@
 			"sparql": "SELECT (COUNT(?log) AS ?count) WHERE {GRAPH <http://wot.arces.unibo.it/monitor/mqtt> {?log ?x ?y}}"
 		}
 	}
+}
