@@ -70,6 +70,17 @@
 						"#"
 					],
 					"ssl": false
+				},
+				{
+					"url": "roger.wizzilab.com",
+					"port": 8883,
+					"topics": [
+						"/applink/3BC51892/report/107/001BC50C700009BB",
+						"/applink/3BC51892/report/107/001BC50C700009CD"
+					],
+					"ssl": false,
+					"username": "ffa574972ab9",
+					"password": "6e257b56172ea934d79ee1f5c2c1c7a9"
 				}
 			]
 		},
@@ -252,14 +263,14 @@
 			}
 		},
 		"semantic-mappings": {
-			"/ffa574972ab9/applink/107/001BC50C700009CD": {
+			"/applink/3BC51892/report/107/001BC50C700009CD": {
 				"observation": "arces-monitor:001BC50C700009CD-DASH7-Temperature",
 				"unit": "qudt-unit-1-1:DegreeCelsius",
 				"location": "arces-monitor:Star_SEHM_Lab",
 				"comment": "Temperature sensor used to show the need of a new air conditioning system in SEHM lab",
 				"label": "SEHM lab temperature (Star)"
 			},
-			"/ffa574972ab9/applink/107/001BC50C700009BB": {
+			"/applink/3BC51892/report/107/001BC50C700009BB": {
 				"observation": "arces-monitor:001BC50C700009BB-DASH7-Temperature",
 				"unit": "qudt-unit-1-1:DegreeCelsius",
 				"location": "arces-monitor:Star_ST_Office",
@@ -806,22 +817,22 @@
 		}
 	},
 	"queries": {
-		"LOG_QUANTITY" : {
-			"sparql" : "SELECT * WHERE {GRAPH <http://wot.arces.unibo.it/monitor/mqtt/log/2019> {?result sosa:isResultOf ?observation ; qudt-1-1:numericValue ?value; time:inXSDDateTimeStamp ?timestamp} FILTER (xsd:dateTime(?timestamp) > ?from && xsd:dateTime(?timestamp) < ?to)} ORDER BY ?timestamp",
-			"forcedBindings" : {
-				"from" : {
-					"datatype" : "xsd:dateTime",
-					"type" : "literal",
-					"value" : "2018-01-01T00:00:00"
+		"LOG_QUANTITY": {
+			"sparql": "SELECT * WHERE {GRAPH <http://wot.arces.unibo.it/monitor/mqtt/log/2019> {?result sosa:isResultOf ?observation ; qudt-1-1:numericValue ?value; time:inXSDDateTimeStamp ?timestamp} FILTER (xsd:dateTime(?timestamp) > ?from && xsd:dateTime(?timestamp) < ?to)} ORDER BY ?timestamp",
+			"forcedBindings": {
+				"from": {
+					"datatype": "xsd:dateTime",
+					"type": "literal",
+					"value": "2018-01-01T00:00:00"
 				},
-				"to" : {
-					"datatype" : "xsd:dateTime",
-					"type" : "literal",
-					"value" : "2018-01-01T00:00:00"
+				"to": {
+					"datatype": "xsd:dateTime",
+					"type": "literal",
+					"value": "2018-01-01T00:00:00"
 				},
-				"observation" : {
-					"type" : "uri",
-					"value" : "arces-monitor:ObservationXYZ"
+				"observation": {
+					"type": "uri",
+					"value": "arces-monitor:ObservationXYZ"
 				}
 			}
 		},
@@ -909,6 +920,11 @@
 				"default-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt/message",
 				"named-graph-uri": "http://wot.arces.unibo.it/monitor/mqtt/message"
 			}
+		},
+		"HISTORICAL_TRIPLES": {
+			"sparql": "SELECT (COUNT(?log) AS ?count) WHERE {GRAPH <http://wot.arces.unibo.it/monitor/mqtt/log/2019> {?log ?x ?y}}"
+		},
+		"LIVE_TRIPLES": {
+			"sparql": "SELECT (COUNT(?log) AS ?count) WHERE {GRAPH <http://wot.arces.unibo.it/monitor/mqtt> {?log ?x ?y}}"
 		}
 	}
-}
