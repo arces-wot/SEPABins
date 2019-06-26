@@ -111,7 +111,7 @@
 			}
 		},
 		"ADD_MQTT_BROKER" : {
-			"sparql" : "WITH <http://wot.arces.unibo.it/mqtt> DELETE {?broker ?p ?o} INSERT {_:broker mqtt:url ?url ; rdf:type mqtt:Broker ; mqtt:port ?port ; mqtt:user ?username ; mqtt:password ?password ; mqtt:sslProtocol ?sslProtocol ; mqtt:sslCA ?caFile ; mqtt:clientId ?clientId} WHERE {OPTIONAL {?broker rdf:type mqtt:Broker ;  mqtt:url ?url ; mqtt:port ?port ; ?p ?o} }",
+			"sparql" : "WITH <http://wot.arces.unibo.it/mqtt> DELETE {?broker mqtt:url ?url ; rdf:type mqtt:Broker ; mqtt:port ?port ; mqtt:user ?username ; mqtt:password ?password ; mqtt:sslProtocol ?sslProtocol ; mqtt:sslCA ?caFile ; mqtt:clientId ?clientId} INSERT {_:broker mqtt:url ?url ; rdf:type mqtt:Broker ; mqtt:port ?port ; mqtt:user ?username ; mqtt:password ?password ; mqtt:sslProtocol ?sslProtocol ; mqtt:sslCA ?caFile ; mqtt:clientId ?clientId} WHERE {OPTIONAL {?broker mqtt:url ?url ; rdf:type mqtt:Broker ; mqtt:port ?port ; mqtt:user ?username ; mqtt:password ?password ; mqtt:sslProtocol ?sslProtocol ; mqtt:sslCA ?caFile ; mqtt:clientId ?clientId} }",
 			"forcedBindings": {
 				"url": {
 					"type": "literal",

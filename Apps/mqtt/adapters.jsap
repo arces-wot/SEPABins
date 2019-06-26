@@ -10,10 +10,10 @@
 						"/applink/3BC51892/report/107/001BC50C700009CD"
 					],
 					"sslProtocol": "TLSv1.2",
-					"caFile" : "/etc/ssl/cert.pem",
+					"caFile": "/etc/ssl/cert.pem",
 					"username": "ffa574972ab9",
 					"password": "6e257b56172ea934d79ee1f5c2c1c7a9",
-					"clientId" : "ffa574972ab9:1"
+					"clientId": "ffa574972ab9:1"
 				},
 				{
 					"url": "giove.arces.unibo.it",
