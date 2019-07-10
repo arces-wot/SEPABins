@@ -250,7 +250,7 @@
 			}
 		},
 		"MQTT_MESSAGE": {
-			"sparql": "WITH <http://wot.arces.unibo.it/mqtt/message> DELETE {?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp} INSERT {_:message rdf:type mqtt:Message ; mqtt:value ?value ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?timestamp} WHERE {OPTIONAL{?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp} . BIND(now() AS ?timestamp)}",
+			"sparql": "WITH <http://wot.arces.unibo.it/mqtt/message> DELETE {?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp} INSERT {_:message rdf:type mqtt:Message ; mqtt:value ?value ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?timestamp} WHERE {OPTIONAL{?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp}}",
 			"forcedBindings": {
 				"value": {
 					"type": "literal",
@@ -263,11 +263,16 @@
 				"broker": {
 					"type": "literal",
 					"value": "tcp://giove.arces.unibo.it:52887"
+				},
+				"timestamp": {
+					"type": "literal",
+					"value": "2019-07-03T14:39:13.000",
+					"datatype": "xsd:dateTime"
 				}
 			}
 		},
 		"LOG_QUANTITY": {
-			"sparql": "INSERT {GRAPH <http://wot.arces.unibo.it/observation/history> {_:result sosa:isResultOf ?observation ; qudt:numericValue ?value ; time:inXSDDateTimeStamp ?timestamp}} WHERE {BIND(now() AS ?timestamp)}",
+			"sparql": "INSERT {GRAPH <http://wot.arces.unibo.it/observation/history> {_:result sosa:isResultOf ?observation ; qudt:numericValue ?value ; time:inXSDDateTimeStamp ?timestamp}} WHERE {}",
 			"forcedBindings": {
 				"observation": {
 					"type": "uri",
@@ -277,11 +282,16 @@
 					"type": "literal",
 					"value": "1234",
 					"datatype": "xsd:decimal"
+				},
+				"timestamp": {
+					"type": "literal",
+					"value": "2019-07-03T14:39:13.000",
+					"datatype": "xsd:dateTime"
 				}
 			}
 		},
 		"REMOVE_OBSERVATION": {
-			"sparql": "WITH <http://wot.arces.unibo.it/observation> DELETE {?observation rdf:type sosa:Observation ; rdfs:label ?label ; rdfs:comment ?comment ; sosa:hasFeatureOfInterest ?location ; arces-monitor:hasMqttTopic ?topic ; sosa:hasResult ?quantity . ?quantity rdf:type qudt:QuantityValue ; qudt:unit ?unit ; qudt:numericValue ?value} WHERE {?observation rdf:type sosa:Observation ; rdfs:label ?label ; rdfs:comment ?comment ; sosa:hasFeatureOfInterest ?location ; mqtt:topic ?topic ; sosa:hasResult ?quantity . ?quantity rdf:type qudt:QuantityValue ; qudt:unit ?unit ; qudt:numericValue ?value}",
+			"sparql": "WITH <http://wot.arces.unibo.it/observation> DELETE {?observation rdf:type sosa:Observation ; ?p ?o} WHERE {?observation rdf:type sosa:Observation ; ?p ?o}",
 			"forcedBindings": {
 				"observation": {
 					"type": "uri",
@@ -315,7 +325,7 @@
 			}
 		},
 		"UPDATE_OBSERVATION_VALUE": {
-			"sparql": "WITH <http://wot.arces.unibo.it/observation> DELETE { ?quantity qudt:numericValue ?oldValue . ?observation sosa:resultTime ?oldTime } INSERT { ?quantity qudt:numericValue ?value . ?observation sosa:resultTime ?now } WHERE { ?observation rdf:type sosa:Observation ; sosa:hasResult ?quantity . OPTIONAL { ?observation sosa:resultTime ?oldTime} . OPTIONAL {?quantity qudt:numericValue ?oldValue } BIND(now() AS ?now) }",
+			"sparql": "WITH <http://wot.arces.unibo.it/observation> DELETE { ?quantity qudt:numericValue ?oldValue . ?observation sosa:resultTime ?oldTime } INSERT { ?quantity qudt:numericValue ?value . ?observation sosa:resultTime ?timestamp } WHERE { ?observation rdf:type sosa:Observation ; sosa:hasResult ?quantity . OPTIONAL { ?observation sosa:resultTime ?oldTime} . OPTIONAL {?quantity qudt:numericValue ?oldValue }}",
 			"forcedBindings": {
 				"observation": {
 					"type": "uri",
@@ -325,6 +335,11 @@
 					"type": "literal",
 					"datatype": "xsd:decimal",
 					"value": "12345.67890"
+				},
+				"timestamp": {
+					"type": "literal",
+					"datatype": "xsd:decimal",
+					"value": "2019-07-03T14:39:13.000"
 				}
 			}
 		}
