@@ -1,0 +1,19 @@
+{
+	"updates": {
+		"CLEAR_MQTT_GRAPH": {
+			"sparql": "WITH <http://wot.arces.unibo.it/mqtt> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		},
+		"CLEAR_HISTORY_GRAPH": {
+			"sparql": "WITH <http://wot.arces.unibo.it/observation/history> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		},
+		"CLEAR_MQTT_MESSAGE_GRAPH": {
+			"sparql": "WITH <http://wot.arces.unibo.it/mqtt/message> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		},
+		"CLEAR_CONTEXT_GRAPH": {
+			"sparql": "WITH <http://wot.arces.unibo.it/context> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		},
+		"CLEAR_OBSERVATION_GRAPH": {
+			"sparql": "WITH <http://wot.arces.unibo.it/observation> DELETE {?s ?p ?o} WHERE {?s ?p ?o}"
+		}
+	}
+}

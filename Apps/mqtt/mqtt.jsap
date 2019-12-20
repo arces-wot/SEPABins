@@ -7,7 +7,7 @@
 	},
 	"sparql11protocol": {
 		"protocol": "http",
-		"port": 8666,
+		"port": 8000,
 		"query": {
 			"path": "/query",
 			"method": "POST",
@@ -23,7 +23,7 @@
 		"protocol": "ws",
 		"availableProtocols": {
 			"ws": {
-				"port": 9666,
+				"port": 9000,
 				"path": "/subscribe"
 			},
 			"wss": {
@@ -54,7 +54,7 @@
 	},
 	"updates": {
 		"MQTT_MESSAGE": {
-			"sparql": "WITH <http://wot.arces.unibo.it/mqtt/message> DELETE {?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp} INSERT {_:message rdf:type mqtt:Message ; mqtt:value ?value ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?timestamp} WHERE {OPTIONAL{?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp}}",
+			"sparql": "WITH <http://wot.arces.unibo.it/mqtt/message> DELETE {?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp} INSERT {_:message rdf:type mqtt:Message ; mqtt:value ?value ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?timestamp} WHERE {BIND(now() AS ?timestamp) . OPTIONAL{?oldMessage rdf:type mqtt:Message ; mqtt:value ?oldValue ; mqtt:topic ?topic ; mqtt:hasBroker ?broker ; time:inXSDDateTimeStamp ?oldTimestamp}}",
 			"forcedBindings": {
 				"value": {
 					"type": "literal",
@@ -67,11 +67,6 @@
 				"broker": {
 					"type": "literal",
 					"value": "tcp://giove.arces.unibo.it:52887"
-				},
-				"timestamp": {
-					"type": "literal",
-					"value": "2019-07-03T14:39:13.000",
-					"datatype": "xsd:dateTime"
 				}
 			}
 		},
@@ -89,13 +84,13 @@
 				},
 				"timestamp": {
 					"type": "literal",
-					"value": "2019-07-03T14:39:13.000",
-					"datatype": "xsd:dateTime"
+					"value": "1974-10-13T00:00:00Z",
+					"datatype": "xsd:dateTimeStamp"
 				}
 			}
 		},
 		"UPDATE_OBSERVATION_VALUE": {
-			"sparql": "WITH <http://wot.arces.unibo.it/observation> DELETE { ?quantity qudt:numericValue ?oldValue . ?observation sosa:resultTime ?oldTime } INSERT { ?quantity qudt:numericValue ?value . ?observation sosa:resultTime ?timestamp } WHERE { ?observation rdf:type sosa:Observation ; sosa:hasResult ?quantity . OPTIONAL { ?observation sosa:resultTime ?oldTime} . OPTIONAL {?quantity qudt:numericValue ?oldValue }}",
+			"sparql": "WITH <http://wot.arces.unibo.it/observation> DELETE { ?quantity qudt:numericValue ?oldValue . ?observation sosa:resultTime ?oldTime } INSERT { ?quantity qudt:numericValue ?value . ?observation sosa:resultTime ?timestamp } WHERE {BIND(now() AS ?timestamp) . ?observation rdf:type sosa:Observation ; sosa:hasResult ?quantity . OPTIONAL { ?observation sosa:resultTime ?oldTime} . OPTIONAL {?quantity qudt:numericValue ?oldValue }}",
 			"forcedBindings": {
 				"observation": {
 					"type": "uri",
@@ -105,18 +100,13 @@
 					"type": "literal",
 					"datatype": "xsd:decimal",
 					"value": "12345.67890"
-				},
-				"timestamp": {
-					"type": "literal",
-					"datatype": "xsd:dateTime",
-					"value": "2019-07-03T14:39:13Z"
 				}
 			}
 		}
 	},
 	"queries": {
 		"OBSERVATIONS": {
-			"sparql": "SELECT * WHERE {?unit qudt:symbol ?symbol . GRAPH <http://wot.arces.unibo.it/observation> {?observation rdf:type sosa:Observation ; rdfs:label ?label ; sosa:hasResult ?quantity ; sosa:hasFeatureOfInterest ?location . ?quantity rdf:type qudt:QuantityValue ; qudt:unit ?unit . OPTIONAL {?quantity qudt:numericValue ?value} . OPTIONAL {?observation sosa:resultTime ?timestamp}} . GRAPH <http://wot.arces.unibo.it/context> {?location schema:name ?name} }"
+			"sparql": "SELECT * WHERE {GRAPH <http://wot.arces.unibo.it/observation> {?observation rdf:type sosa:Observation ; rdfs:label ?label ; sosa:hasResult ?quantity ; sosa:hasFeatureOfInterest ?location . ?quantity rdf:type qudt:QuantityValue ; qudt:unit ?unit . OPTIONAL {?quantity qudt:numericValue ?value} . OPTIONAL {?observation sosa:resultTime ?timestamp}} . GRAPH <http://wot.arces.unibo.it/context> {?location schema:name ?name} . OPTIONAL{?unit qudt:symbol ?symbol} }"
 		},
 		"MQTT_BROKERS": {
 			"sparql": "SELECT * WHERE { GRAPH <http://wot.arces.unibo.it/mqtt> {?broker mqtt:url ?url ; rdf:type mqtt:Broker ; mqtt:port ?port ; mqtt:sslProtocol ?sslProtocol ; mqtt:user ?user ; mqtt:password ?password ; mqtt:sslCA ?caFile ; mqtt:clientId ?clientId}}"
