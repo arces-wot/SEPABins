@@ -161,7 +161,7 @@
 			"forcedBindings": {
 				"receiver": {
 					"type": "uri",
-					"value": "chat:IAmAReceiver"
+					"value": "http://wot.arces.unibo.it/chat/user/ChatBot0"
 				}
 			}
 		},
@@ -170,7 +170,7 @@
 			"forcedBindings": {
 				"sender": {
 					"type": "uri",
-					"value": "chat:IAmASender"
+					"value": "http://wot.arces.unibo.it/chat/user/ChatBot0"
 				}
 			}
 		},
