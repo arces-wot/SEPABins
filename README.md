@@ -87,46 +87,55 @@ Stopping Processor...
 Stopped...bye bye :-)
 ```
 # Play with SEPA
-SEPA applications are built around the [JSON Semantic Application Profile (JSAP)](http://mml.arces.unibo.it/TR/jsap.html).  A demo application can be found in the `Apps/mqtt` folder. The JSAP file is named `arces-demo.jsap`. From a command shell, move to the `Apps/mqtt` folder and type: `java -jar MQTTDemo.jar arces-demo.jsap`
+SEPA applications are built around the [JSON Semantic Application Profile (JSAP)](http://mml.arces.unibo.it/TR/jsap.html).  A demo application can be found in the `Chat` folder. The JSAP file is named `chat.jsap`. The full chat demo application can be found [here](https://github.com/arces-wot/SEPA-Chat). From a command shell, move to the `Chat` folder and type: `java -jar Chat.jar`
 
 The output should look like:
 
 ```
-2018-10-24T09:45:51,083 [INFO ] main (MQTTDemo.java:46) Parse places
-2018-10-24T09:45:51,094 [INFO ] main (MQTTDemo.java:52) Add places
-2018-10-24T09:45:51,128 [INFO ] main (MQTTDemo.java:71) Parse places' links
-2018-10-24T09:45:51,137 [INFO ] main (MQTTDemo.java:78) Link places
-2018-10-24T09:45:51,148 [INFO ] main (MQTTDemo.java:96) Parse semantic mappings
-2018-10-24T09:45:51,158 [INFO ] main (MQTTDemo.java:103) Add observations
-2018-10-24T09:45:51,322 [INFO ] main (MQTTDemo.java:127) Create observation logger
-2018-10-24T09:45:51,352 [INFO ] main (WebsocketSubscriptionProtocol.java:103) Connect to: ws://localhost:9000/subscribe
-2018-10-24T09:45:51,661 [INFO ] Grizzly(1) (WebsocketSubscriptionProtocol.java:166) @onOpen session: b8de0aae-2f75-401d-94d7-42c04feb86d1
-2018-10-24T09:45:51,670 [INFO ] main (MQTTDemo.java:131) Create observation updater
-2018-10-24T09:45:51,691 [INFO ] main (WebsocketSubscriptionProtocol.java:103) Connect to: ws://localhost:9000/subscribe
-2018-10-24T09:45:51,698 [INFO ] Grizzly(1) (WebsocketSubscriptionProtocol.java:166) @onOpen session: 7c995402-bd01-4b28-b13a-8a12ec485862
-2018-10-24T09:45:51,700 [INFO ] main (WebsocketSubscriptionProtocol.java:103) Connect to: ws://localhost:9000/subscribe
-2018-10-24T09:45:51,711 [INFO ] Grizzly(1) (WebsocketSubscriptionProtocol.java:166) @onOpen session: ae8e4a55-dee7-45e6-8dcc-dd78981b1cb2
-2018-10-24T09:45:51,714 [INFO ] main (MQTTDemo.java:135) Create MQTT adapter
-2018-10-24T09:45:51,734 [INFO ] main (MQTTDemo.java:138) Press any key to exit...
+2021-04-12T18:58:36,779 [INFO ] main (DeleteAll.java:23) Delete all
+2021-04-12T18:58:36,903 [INFO ] main (SEPAChatTest.java:88) Register client: ChatBot0
+2021-04-12T18:58:36,955 [INFO ] main (SEPAChatTest.java:88) Register client: ChatBot1
+2021-04-12T18:58:37,272 [INFO ] Thread-0 (ChatMonitor.java:98) *******************************************************
+2021-04-12T18:58:37,272 [INFO ] Thread-0 (ChatMonitor.java:99) user|messages|received|sent|removed|brokenRec|brokenRem
+2021-04-12T18:58:37,272 [INFO ] Thread-0 (ChatMonitor.java:100) *******************************************************
+2021-04-12T18:58:37,273 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot0|5|0|0|0|false|false
+2021-04-12T18:58:37,273 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot1|5|0|0|0|false|false
+2021-04-12T18:58:37,308 [INFO ] main (ChatClient.java:34) http://wot.arces.unibo.it/chat/user/ChatBot0 joining the chat...
+2021-04-12T18:58:37,366 [INFO ] main (ChatClient.java:49) http://wot.arces.unibo.it/chat/user/ChatBot0 chat joined!
+2021-04-12T18:58:37,393 [INFO ] main (ChatClient.java:34) http://wot.arces.unibo.it/chat/user/ChatBot1 joining the chat...
+2021-04-12T18:58:37,441 [INFO ] main (ChatClient.java:49) http://wot.arces.unibo.it/chat/user/ChatBot1 chat joined!
+2021-04-12T18:58:38,275 [INFO ] Thread-0 (ChatMonitor.java:98) *******************************************************
+2021-04-12T18:58:38,276 [INFO ] Thread-0 (ChatMonitor.java:99) user|messages|received|sent|removed|brokenRec|brokenRem
+2021-04-12T18:58:38,276 [INFO ] Thread-0 (ChatMonitor.java:100) *******************************************************
+2021-04-12T18:58:38,276 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot0|5|3|2|1|false|false
+2021-04-12T18:58:38,277 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot1|5|2|2|0|false|false
+2021-04-12T18:58:39,279 [INFO ] Thread-0 (ChatMonitor.java:98) *******************************************************
+2021-04-12T18:58:39,280 [INFO ] Thread-0 (ChatMonitor.java:99) user|messages|received|sent|removed|brokenRec|brokenRem
+2021-04-12T18:58:39,280 [INFO ] Thread-0 (ChatMonitor.java:100) *******************************************************
+2021-04-12T18:58:39,280 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot0|5|5|4|3|false|false
+2021-04-12T18:58:39,281 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot1|5|5|4|2|false|false
+2021-04-12T18:58:40,286 [INFO ] Thread-0 (ChatMonitor.java:98) *******************************************************
+2021-04-12T18:58:40,286 [INFO ] Thread-0 (ChatMonitor.java:99) user|messages|received|sent|removed|brokenRec|brokenRem
+2021-04-12T18:58:40,286 [INFO ] Thread-0 (ChatMonitor.java:100) *******************************************************
+2021-04-12T18:58:40,287 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot0|5|5|5|5|false|false
+2021-04-12T18:58:40,287 [INFO ] Thread-0 (ChatMonitor.java:104) http://wot.arces.unibo.it/chat/user/ChatBot1|5|5|5|5|false|false
+
 ```
 
-The application is configured to simulate MQTT messages. For each new MQTT message, a line like the following is printed:
+The demo application is configured to simulate two chat bots, exchanging 5 messages each other. The messagges are sent, received and the removed.
 
-```
-2018-10-24T09:45:51,734 [INFO ] Thread-1 (MQTTAdapter.java:76) [Simulate MQTT message] Topic: 5CCF7F1B599E/temperature Value: 29.72
-```
 
-SEPA comes with a dashboard that provides all the functionalities need to interact with a SEPA broker (using JSAP files). In the `Tools` folder double click on `Dashboard_X_Y_Z.jar` or run it from a command shell as: `java -jar Dashboard_X_Y_Z.jar` 
+SEPA comes with a dashboard that provides all the functionalities needed to interact with a SEPA broker (using JSAP files). In the `Dashboard` folder run it from a command shell as: `java -jar SepaDashboard-0-SNAPSHOT-jar-with-dependencies.jar` 
 
-Now, let's use the dashboard to query the values of the observations produced by the running demo:
+Now, let's use the dashboard to inspect what is produced by the chat demo:
 
-1. Click on the `Load JSAP` button. Move to the `Apps/mqtt` and locate the `arces-demo.jsap`. Open it.
-2. Query for observations: select `OBSERVATIONS` on the right list box and click `QUERY`
+1. Click on the `Load JSAP` button. Move to the `Chat` and locate the `chat.jsap`. Open it.
+2. Query for registered users: select `USERS` on the right list box and click `QUERY`
 
 ![](./Query.png)
 
-What you have done can be done with a common SPARQL endpoint. But SEPA can do more...press `SUBSCRIBE`. A new tab is opened with the notifications on sensor data changes. Grey lines indicate "old" values, while white lines indicate "new" values.
+What you have done can be done with a common SPARQL endpoint. But SEPA can do more...press `SUBSCRIBE`. A new tab is opened with the notifications on changing in the registered users. Grey lines indicate "old" values, while white lines indicate "new" values.
 
 ![](./Subscribe.png)
 
-
+Run again the chat demo and see the notifications on the dashboard...that's are Dynamic Linked Data! 
