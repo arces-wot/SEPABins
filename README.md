@@ -11,7 +11,7 @@ Clone the repository: `git clone https://github.com/arces-wot/SEPABins.git`
 The SEPA broker needs to connect to a SPARQL endpoint supporting the [SPARQL 1.1 Protocol](https://www.w3.org/TR/sparql11-protocol/). For you convenience, the repository includes an instance of [Blazegraph](https://www.blazegraph.com/).
 
 ## Start the SPARQL endpoint
-From a command shell move to the `endpoint` folder and run the endpoint: `java -jar blazegraph.jar`
+From a command shell move to the `Endpoint` folder and run the endpoint: `java -jar blazegraph.jar`
 
 If Blazegraph started correctly, you would see something like the following:
 
@@ -25,23 +25,36 @@ Otherwise, Blazegraph failed to start. This can be due to the JRE version: If yo
 In any case, please refer to the [Blazegraph web site](https://www.blazegraph.com/) to download and run the last version (the one we provide is just for the purpose of quickly testing SEPA and may not be updated).
 
 ## Start the SEPA broker
-From a command shell, move to the `engine` folder and type: `java -jar SEPAEngine_X_Y_Z.jar`
+From a command shell, move to the `Engine` folder and type: `java -Dlog4j.configurationFile=./log4j2.xml -jar engine-0-SNAPSHOT.jar`
 
 The following welcome message would be displayed:
 
 ```
 ##########################################################################################
-# SEPA Broker                                                                            #
-# Dynamic Linked Data & Web of Things Research - University of Bologna (Italy)           #
-# Copyright (C) 2016-2018                                                                #
+#                           ____  _____ ____   _                                         #
+#                          / ___|| ____|  _ \ / \                                        #
+#                          \___ \|  _| | |_) / _ \                                       #
+#                           ___) | |___|  __/ ___ \                                      #
+#                          |____/|_____|_| /_/   \_\                                     #
+#                                                                                        #
+#                     SPARQL Event Processing Architecture                               #
+#                                                                                        #
+#                                                                                        #
 # This program comes with ABSOLUTELY NO WARRANTY                                         #
 # This is free software, and you are welcome to redistribute it under certain conditions #
 # GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007                                    #
 #                                                                                        #
-# GITHUB: https://github.com/arces-wot/sepa                                              #
-# WEB: http://site.unibo.it/wot                                                          #
-# WIKI: https://github.com/arces-wot/SEPA/wiki                                           #
+#                                                                                        #
+# @prefix git: <https://github.com/> .                                                   #
+# @prefix dc: <http://purl.org/dc/elements/1.1/> .                                       #
+#                                                                                        #
+# git:arces-wot/sepa dc:title 'SEPA' ;                                                   #
+# dc:creator git:lroffia ;                                                               #
+# dc:contributor git:relu91 ;                                                            #
+# dc:format <https://java.com> ;                                                         #
+# dc:publisher <https://github.com> .                                                    #
 ##########################################################################################
+
 SPARQL 1.1 endpoint
 ----------------------
 SPARQL 1.1 Query     | http://localhost:9999/blazegraph/namespace/kb/sparql (Method: POST)
@@ -50,17 +63,17 @@ SPARQL 1.1 Update    | http://localhost:9999/blazegraph/namespace/kb/sparql (Met
 
 SPARQL 1.1 Protocol (https://www.w3.org/TR/sparql11-protocol/)
 ----------------------
-SPARQL 1.1 Query     | http://192.168.1.11:8000/query
-SPARQL 1.1 Update    | http://192.168.1.11:8000/update
+SPARQL 1.1 Query     | http://192.168.1.3:8000/query
+SPARQL 1.1 Update    | http://192.168.1.3:8000/update
 ----------------------
 
-SPARQL 1.1 SE Protocol (http://mml.arces.unibo.it/TR/sparql11-se-protocol/)
+SPARQL 1.1 SE Protocol (http://mml.arces.unibo.it/TR/sparql11-se-protocol.html)
 ----------------------
-SPARQL 1.1 Subscribe | ws://192.168.1.11:9000/subscribe
+SPARQL 1.1 Subscribe | ws://192.168.1.3:9000/subscribe
 ----------------------
 
 *****************************************************************************************
-*                      SEPA Broker Ver 0.9.6 is up and running                          *
+*                      SEPA Broker Ver 1.0.0 is up and running                          *
 *                                Let Things Talk!                                       *
 *****************************************************************************************
 ```
