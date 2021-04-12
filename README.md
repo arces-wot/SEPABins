@@ -138,4 +138,4 @@ What you have done can be done with a common SPARQL endpoint. But SEPA can do mo
 
 ![](./Subscribe.png)
 
-Run again the chat demo and see the notifications on the dashboard...that's are Dynamic Linked Data! 
+Run again the chat demo and see the notifications on the dashboard...that's `Dynamic Linked Data`! 
