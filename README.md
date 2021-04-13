@@ -87,7 +87,7 @@ Stopping Processor...
 Stopped...bye bye :-)
 ```
 # Play with SEPA
-SEPA applications are built around the [JSON Semantic Application Profile (JSAP)](http://mml.arces.unibo.it/TR/jsap.html).  A demo application can be found in the `Chat` folder. The JSAP file is named `chat.jsap`. The full chat demo application can be found [here](https://github.com/arces-wot/SEPA-Chat). From a command shell, move to the `Chat` folder and type: `java -jar Chat.jar`
+SEPA applications are built around the [JSON Semantic Application Profile (JSAP)](http://mml.arces.unibo.it/TR/jsap.html).  A demo application can be found in the `Chat` folder. The JSAP file is named `chat.jsap`. The  chat demo repository can be found [here](https://github.com/arces-wot/SEPA-Chat). From a command shell, move to the `Chat` folder and type: `java -jar Chat.jar`
 
 The output should look like:
 
@@ -125,17 +125,23 @@ The output should look like:
 The demo application is configured to simulate two chat bots, exchanging 5 messages each other. The messagges are sent, received and the removed.
 
 
-SEPA comes with a dashboard that provides all the functionalities needed to interact with a SEPA broker (using JSAP files). In the `Dashboard` folder run it from a command shell as: `java -jar SepaDashboard-0-SNAPSHOT-jar-with-dependencies.jar` 
+SEPA comes with a dashboard that provides all the functionalities needed to interact with a SEPA broker (using JSAP files). The dashboard repository can be found [here](https://github.com/arces-wot/SEPA-Dashboard). In the `Dashboard` folder run it from a command shell as: `java -jar SepaDashboard-0-SNAPSHOT-jar-with-dependencies.jar` 
 
-Now, let's use the dashboard to inspect what is produced by the chat demo:
+Now, let's use the dashboard to inspect what has been produced by the chat demo:
 
 1. Click on the `Load JSAP` button. Move to the `Chat` and locate the `chat.jsap`. Open it.
 2. Query for registered users: select `USERS` on the right list box and click `QUERY`
 
 ![](./Query.png)
 
-What you have done can be done with a common SPARQL endpoint. But SEPA can do more...press `SUBSCRIBE`. A new tab is opened with the notifications on changing in the registered users. Grey lines indicate "old" values, while white lines indicate "new" values.
+What you have done can be done with a common SPARQL endpoint. But SEPA can do more...press `SUBSCRIBE`. A new tab is opened with the notifications on changes in the registered users. Grey lines indicate "old" values, while white lines indicate "new" values.
 
 ![](./Subscribe.png)
 
-Run again the chat demo and see the notifications on the dashboard...that's `Dynamic Linked Data`! 
+Run again the chat demo and see the notifications on the dashboard. Now move back to `SPARQL` tab and `QUERY` for messages `SENT` to `http://wot.arces.unibo.it/chat/user/ChatBot0`. No messages have been sent ... press `SUBSCRIBE` ... and run the chat demo again ...
+
+![](./Messages.png)
+
+# Join us
+
+This is what we intend for [Dynamic Linked Data](https://doi.org/10.3390/fi10040036)! Don't be shy...[join us](https://github.com/arces-wot)!
